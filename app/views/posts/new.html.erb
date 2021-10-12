@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Crea tu Publicación</h1>
+  <%= simple_form_for [@pet, @post] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :status, as: :radio_buttons, collection: ['perdido', 'encontrado'] %>
+  <%= f.input :address %>
+  <%= f.submit%>
+  <%end  %>
+</div>

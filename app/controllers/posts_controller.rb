@@ -16,6 +16,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def locate
+
+  end
+
   private
 
   def post_params

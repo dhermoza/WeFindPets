@@ -1,6 +1,17 @@
 class PetsController < ApplicationController
   def index
     @pets = Pet.all
+    if params[:breed].present?
+      @pets = Pet.where(breed: params[:breed])
+    end
+    if params[:size].present?
+      puts "here2"
+      @pets = Pet.where(size: params[:size])
+    end
+    if params[:color].present?
+      puts "here2"
+      @pets = Pet.where(color: params[:color])
+    end
   end
 
   def new

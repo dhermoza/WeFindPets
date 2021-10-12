@@ -1,7 +1,11 @@
-<h1><% @pets.each do |p| %></h1>
-<p><%= p.name %></p>
-<p><%= p.color %></p>
-<p><%= p.breed %></p>
-<p><%= p.size %></p>
-<p><%= p.status %></p>
-<% end %>
+<div class="container">
+  <h1><% @pets.each do |p| %></h1>
+  <div class="container">
+    <p><%= p.name %></p>
+    <p><%= p.color %></p>
+    <p><%= p.breed %></p>
+    <p><%= p.size %></p>
+    <p><%= p.status %></p>
+    <% end %>
+  </div>
+</div>

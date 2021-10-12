@@ -1,12 +1,19 @@
-<%= render "filters", pets: @pets %>
-<div class="container">
-  <h1><% @pets.each do |p| %></h1>
-  <div class="container">
-    <p><%= p.name %></p>
-    <p><%= p.color %></p>
-    <p><%= p.breed %></p>
-    <p><%= p.size %></p>
-    <p><%= p.status %></p>
-    <% end %>
+
+<div class="row">
+  <div class="col-6">
+    <%= render "filters", pets: @pets %>
+    <div class="card-columns">
+      <% @pets.each do |p| %>
+      <div class="card">
+        <p><%= p.name %></p>
+        <p><%= p.color %></p>
+        <p><%= p.breed %></p>
+        <p><%= p.size %></p>
+        <p><%= p.status %></p>
+       
+      </div>
+      <% end %>
+    </div>
   </div>
+  <div class="col-6"></div>
 </div>

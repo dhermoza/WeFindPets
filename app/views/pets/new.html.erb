@@ -1,14 +1,46 @@
-<div class="container">
-  <h1>New Pet</h1>
+<div class="container mt-5">
+  <h2 class="mb-3">Nueva Mascota</h2>
   <%= simple_form_for @pet do |f|%>
-  <%= f.input :name %>
-  <%= f.input :gender%>
-  <%= f.input :age %>
-  <%= f.input :size %>
-  <%= f.input :color %>
-  <%= f.input :breed %>
-  <%= f.input :animal %>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit %>
+  <div class="row">
+    <div class="col align-items-center">
+    <%= f.input :name, placeholder: "Nombre", label: false %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= f.input :gender, placeholder: "Sexo", label: false%>
+    </div>
+    <div class="col">
+      <%= f.input :age, placeholder: "Edad", label: false %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= f.input :size, placeholder: "Tamaño", label: false %>
+    </div>
+    <div class="col">
+      <%= f.input :color, placeholder: "Color", label: false %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= f.input :breed, placeholder: "Raza", label: false %>
+    </div>
+    <div class="col">
+    <%= f.input :animal, placeholder: "Tipo de Animal", label: false %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    </div>
+  </div>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <%= f.button :submit, "Continuar", class: "btn btn-info" %>
+      </div>
+    </div>
+  </div>
   <% end %>
 </div>

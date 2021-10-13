@@ -1,2 +1,54 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://source.unsplash.com/800x600/?pet&lost);">
+  <div class="container text-center">
+    <h1>WeFindPets</h1>
+    <p>¿Perdiste a tu mascota? Encuentrala acá</p>
+    <%= link_to "Empezar ahora", new_pet_path, class: "btn btn-gradient" %>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="container m-5">
+  <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
+  <% end %>
+  <h2 class="mt-5 mb-5 mr-5">Mascotas Perdidas</h2>
+  <div class="cards">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/800x600/?pet)">
+      Dogs
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/800x600/?dog&lost)">
+      Pet
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/800x600/?cat&lost)">
+      Cats
+    </div>
+  </div>
+
+
+
+  <h2 class="mt-5 mb-5 mr-5">Mascotas Encontradas</h2>
+  <div class="cards">
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/800x600/?pet)">
+      Dogs
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/800x600/?dog&lost)">
+      Pet
+    </div>
+
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/800x600/?cat&lost)">
+      Cats
+    </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts
+    @posts = Post.all
   end
 
   def show
@@ -32,6 +32,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :description, :address, :status)
+    params.require(:post).permit(:title, :description, :address, :status,  photos: [])
   end
 end

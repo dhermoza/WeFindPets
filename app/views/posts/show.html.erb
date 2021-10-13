@@ -1,0 +1,42 @@
+<section class="post-show-page">
+  <!-- titulo -->
+ <div class="p-3 text-center">
+    <div class="">
+      <h2 class="px-5">
+        <%= @post.title.capitalize%>
+      </h2>
+    </div>
+  </div>
+  <!-- img -->
+ <div class="image-grid">
+    <img class="image-grid-col-2 image-grid-row-2" src="https://phantom-marca.unidadeditorial.es/252acdd64f48851f815c16049a789f23/resize/1320/f/jpg/assets/multimedia/imagenes/2021/04/19/16188479459744.jpg" alt="">
+    <img  class=""src="https://i.blogs.es/44886f/la-espectacular-subida-de-dodgecoin-mayor-que-la-de-bitcoin-con-todos-los-elementos-de-hype-actuales-reddit-elon-musk-y-troleos-varios---1/450_1000.jpeg" alt="">
+    <img  class=""src="https://i.blogs.es/44886f/la-espectacular-subida-de-dodgecoin-mayor-que-la-de-bitcoin-con-todos-los-elementos-de-hype-actuales-reddit-elon-musk-y-troleos-varios---1/450_1000.jpeg" alt="">
+    <img  class=""src="https://i.blogs.es/44886f/la-espectacular-subida-de-dodgecoin-mayor-que-la-de-bitcoin-con-todos-los-elementos-de-hype-actuales-reddit-elon-musk-y-troleos-varios---1/450_1000.jpeg" alt="">
+    <img  class=""src="https://i.blogs.es/44886f/la-espectacular-subida-de-dodgecoin-mayor-que-la-de-bitcoin-con-todos-los-elementos-de-hype-actuales-reddit-elon-musk-y-troleos-varios---1/450_1000.jpeg" alt="">
+ </div>
+  <!-- descripcion -->
+  <div class=" container px-5">
+    <p><%= @post.description.capitalize %></p>
+  </div>
+  <h3 class="px-5">Caracteristicas</h3>
+  <div class="px-5">
+    <p><%= @post.pet.animal.capitalize %></p>
+    <p><%= @post.pet.breed.capitalize %></p>
+    <p><%= @post.pet.size.capitalize %></p>
+    <p><%= @post.pet.gender.capitalize %></p>
+  </div>
+
+  <div>
+    <%= render "contact_form", post: @post %>
+  </div>
+
+ <!-- btn -->
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <button class="btn btn-default" data-toggle="modal" data-target="#contactForm">Contactar</button>
+      </div>
+    </div>
+  </div>
+</section>

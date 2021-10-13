@@ -1,0 +1,31 @@
+
+
+<%= form_with do |form| %>
+  <div class="modal fade" id="contactForm">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Envia un mensaje</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-inputs">
+            <div class="form-group">
+              <%= form.label :name, "Nombre:" %>
+              <%= form.text_field :name, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= form.label :description, "Descripcion del mensaje:" %>
+              <%= form.text_field :description, class: "form-control" %>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= form.submit "Enviar", class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

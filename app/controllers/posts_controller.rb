@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @marker = { lat: @post.latitude, lng: @post.longitude }
   end
 
   def new

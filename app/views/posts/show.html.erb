@@ -1,17 +1,11 @@
 <section class="post-show-page">
   <!-- titulo -->
-
  <div class="p-3">
     <div class="d-flex justify-content-center">
-
       <h2 class="px-5">
         <%= @post.title.capitalize%>
       </h2>
-      <%= link_to "Editar", post_edit_path(@post), class: "btn btn-primary" %>
-    </div>
-    <div class="col-4">
-          <%= link_to "Editar publicacion", edit_pet_post_path(@post), class: "btn btn-primary", id: "publication" %>
-       
+       <%= link_to "Editar", edit_pet_post_path(@post), class: "btn btn-primary", id: "publication" %>
     </div>
   </div>
   <!-- img -->
@@ -23,48 +17,43 @@
         <%= cl_image_tag photo.key, height: 150, width: 250, crop: :thumb %>
       <% end %>
     <% end %>
-    <!--<img class="image-grid-col-2 image-grid-row-2" src="https://phantom-marca.unidadeditorial.es/252acdd64f48851f815c16049a789f23/resize/1320/f/jpg/assets/multimedia/imagenes/2021/04/19/16188479459744.jpg" alt="">
-    <img  class=""src="https://i.blogs.es/44886f/la-espectacular-subida-de-dodgecoin-mayor-que-la-de-bitcoin-con-todos-los-elementos-de-hype-actuales-reddit-elon-musk-y-troleos-varios---1/450_1000.jpeg" alt="">
-    <img  class=""src="https://i.blogs.es/44886f/la-espectacular-subida-de-dodgecoin-mayor-que-la-de-bitcoin-con-todos-los-elementos-de-hype-actuales-reddit-elon-musk-y-troleos-varios---1/450_1000.jpeg" alt="">
-    <img  class=""src="https://i.blogs.es/44886f/la-espectacular-subida-de-dodgecoin-mayor-que-la-de-bitcoin-con-todos-los-elementos-de-hype-actuales-reddit-elon-musk-y-troleos-varios---1/450_1000.jpeg" alt="">
-    <img  class=""src="https://i.blogs.es/44886f/la-espectacular-subida-de-dodgecoin-mayor-que-la-de-bitcoin-con-todos-los-elementos-de-hype-actuales-reddit-elon-musk-y-troleos-varios---1/450_1000.jpeg" alt=""-->
  </div>
   <!-- descripcion -->
-  <div class=" container px-5">
-    <div class="row">
-      <div class="col-6">
+  <div class=" container px-5 d-flex justify-content-center">
+    <div class="col-6">
+      <div class="">
         <h2>Descripción</h2>
         <p><%= @post.description.capitalize %></p>
         <br>
-        <div class="row">
-          <div class="col-8">
-
+        <div class="d-flex justify-content-center">
+          <div class="col-8 ">
             <h2>Caracteristicas</h2>
           </div>
-          <div class="col-4">
-            <%= link_to "Editar mascota", edit_pet_path(@post), class: "btn btn-primary", id: "publication" %>
-         
-      </div>
+          <div class="col-4 ">
+            <%= link_to "Editar mascota", edit_pet_path(@post), class: "btn btn-primary" %>
+          </div>
         </div>
+        </div>
+        <p><%= @post.pet.name.capitalize %></p>
+        <p><%= @post.pet.gender.capitalize %></p>
+        <p><%= @post.pet.size.capitalize %></p>
         <p><%= @post.pet.animal.capitalize %></p>
         <p><%= @post.pet.breed.capitalize %></p>
-        <p><%= @post.pet.size.capitalize %></p>
-        <p><%= @post.pet.gender.capitalize %></p>
       </div>
       <div class="col-6">
-      <div data-controller="show-map">
-        <div id="map" data-show-map-target="map"
-          style="width: 100%; height: 400px;"
-          data-marker="<%= @marker.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        <div data-controller="show-map">
+          <div id="map" data-show-map-target="map"
+            style="width: 100%; height: 400px;"
+            data-marker="<%= @marker.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
         </div>
-      </div>
       </div>
     </div>
   </div>
-  <div>
-    <%= render "contact_form", post: @post %>
-  </div>
+
+ <!-- <%= render "contact_form", post: @post %>-->
+
 
  <!-- btn -->
   <div class="container">

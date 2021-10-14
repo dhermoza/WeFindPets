@@ -48,6 +48,7 @@ class PostsController < ApplicationController
       redirect_to  posts_path
     else
       flash[:alert] = "Ingrese datos correctos"
+      # redirect_to post_edit_path(@post)
       redirect_to edit_post_path(@post)
     end
   end

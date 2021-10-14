@@ -2,7 +2,14 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-6">
-      <h3 class="mb-3 text-center">Editar publicación</h3>
+      <div class="d-flex justify-content-center">
+        <h3 class="mb-3">Editar publicación</h3>
+        <%= link_to 'Delete', post_path(@post),
+          method: :delete,
+          class: 'btn btn-danger ml-3',
+          data: { confirm: 'Estas seguro?' }
+        %>
+      </div>
       <%= simple_form_for [@pet, @post] do |f| %>
       <div class="row">
         <div class="col-6">
@@ -41,7 +48,7 @@
     </div>
   </div>
 </div>
-
+<!--
 <div class="container mt-4 mb-4">
   <div class="row">
     <div class="col-6 m-auto">
@@ -56,5 +63,4 @@
 
     </div>
   </div>
-</div>
-
+</div>-->

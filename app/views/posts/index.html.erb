@@ -1,21 +1,22 @@
-<div class="container">
-  <div class="row">
-      <% @posts.each do |post| %>
-        <%= link_to  post_path(post), class: "card-trip-wrapper" do %>
-        <div class="col-4">
-          <div class="card-trip m-5">
-            <% if !post.pet.photos.empty?  %>
-              <%= cl_image_tag post.pet.photos.first.key, height: 150, width: 200, crop: :fill %>
-            <% end %>
-            <div class="card-trip-infos">
-              <div >
-                <h2><%= post.title %></h2>
-                <p class="card-trip-description"><%= post.description %></p>
-              </div>
-            </div>
-          </div>
-        <% end %>
-        </div>
+
+<div class="row">
+  <div class="col-6">
+      <div class="cards">
+<% @posts.each do |post| %>
+  <%= link_to  post_path(post), class: "card-trip-wrapper" do %>
+    <div class="card-trip">
+      <% if !post.pet.photos.empty?  %>
+        <%= cl_image_tag post.pet.photos.first.key, height: 150, width: 200, crop: :fill %>
       <% end %>
-  </div>
+      <div class="card-trip-infos">
+        <div >
+          <h5><%= post.title %></h5>
+          <p class="t-overflow"><%= post.description %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
+</div>
+</div>
 </div>

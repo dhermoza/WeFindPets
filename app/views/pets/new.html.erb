@@ -8,7 +8,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <%= f.input :gender, placeholder: "Sexo", label: false%>
+      <%= f.input :gender, collection: Pet::GENDER.reject { |s| s[0]== "Todos" }, include_blank: false, :prompt => 'Please select the Gender of the pet', label: false %>
     </div>
     <div class="col">
       <%= f.input :age, placeholder: "Edad", label: false %>
@@ -16,15 +16,15 @@
   </div>
   <div class="row">
     <div class="col">
-      <%= f.input :size, placeholder: "Tamaño", label: false %>
+        <%= f.input :size, collection: Pet::SIZE.reject { |s| s[0]== "Todos" }, include_blank: false, :prompt => 'Please select the size of the pet',  label: false %>
     </div>
     <div class="col">
-      <%= f.input :color, placeholder: "Color", label: false %>
+      <%= f.input :color, collection: Pet::COLOR.reject { |s| s[0]== "Todos" }, include_blank: false, :prompt => 'Please select the Gender of the pet',  label: false %>
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <%= f.input :breed, placeholder: "Raza", label: false %>
+        <%= f.input :breed, collection: Pet::BREEDS.reject { |s| s[0]== "Todos" }, include_blank: false, :prompt => 'Please select the breed of the pet',  label: false %>
     </div>
     <div class="col">
     <%= f.input :animal, placeholder: "Tipo de Animal", label: false %>

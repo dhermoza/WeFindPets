@@ -27,6 +27,22 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
+
+.t-overflow{
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-trip-wrapper{
+  text-decoration: none!important;
+
+}
+
+.card-trip{
+  color: #000000;
+}
 .card-trip {
   overflow: hidden;
   background: white;

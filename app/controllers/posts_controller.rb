@@ -3,15 +3,20 @@ class PostsController < ApplicationController
   def index
     if params[:query].present?
       query = "address @@ :query OR title @@ :query"
-      @posts = Post.where(query, query: "%#{params[:query]}%")
+      @posts = Post.where(query, query: "%#{params[:query]}%").order("id ASC")
     else
-      @posts = Post.all
+      @posts = Post.all.order("id ASC")
     end
   end
 
   def show
     @post = Post.find(params[:id])
     @marker = { lat: @post.latitude, lng: @post.longitude }
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+    @pet = @post.pet
   end
 
   def new
@@ -34,6 +39,31 @@ class PostsController < ApplicationController
   def locate
 
   end
+
+  def update
+    @post = Post.find(params[:id])
+    @pet = Pet.find(params[:pet_id])
+    if @post.update(post_params)
+      flash[:success] = "Se actualizó correctamente"
+      redirect_to  posts_path
+    else
+      flash[:alert] = "Ingrese datos correctos"
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    # authorize @flat
+    @post.destroy
+    flash[:success] = "Se elimino correctamente"
+    redirect_to posts_path
+  end
+
+
+  #def build_post_path(post)
+    #@is_my_post_path ?  post_edit_path(post) : post_path(post)
+  #end
+
 
   def myposts
     @is_my_posts = params[:myposts] == '1'

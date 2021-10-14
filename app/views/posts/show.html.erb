@@ -1,10 +1,11 @@
 <section class="post-show-page">
   <!-- titulo -->
- <div class="p-3 text-center">
-    <div class="">
+ <div class="p-3">
+    <div class="d-flex justify-content-center">
       <h2 class="px-5">
         <%= @post.title.capitalize%>
       </h2>
+      <%= link_to "Editar", post_edit_path(@post), class: "btn btn-primary" %>
     </div>
   </div>
   <!-- img -->

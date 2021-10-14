@@ -1,12 +1,17 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all.order("id ASC")
-
+    if params[:query].present?
+      query = "address @@ :query OR title @@ :query"
+      @posts = Post.where(query, query: "%#{params[:query]}%").order("id ASC")
+    else
+      @posts = Post.all.order("id ASC")
+    end
   end
 
   def show
     @post = Post.find(params[:id])
+    @marker = { lat: @post.latitude, lng: @post.longitude }
   end
 
   def edit
@@ -50,6 +55,17 @@ class PostsController < ApplicationController
     #@is_my_post_path ?  post_edit_path(post) : post_path(post)
   #end
 
+
+  def myposts
+    @is_my_posts = params[:myposts] == '1'
+    if @is_my_posts
+      user_id = current_user.id
+      # @posts = policy_scope(Post).where("user_id = #{user_id}")
+      redirect_to posts_path
+    else
+      @post = Post.all
+    end
+  end
 
   private
 

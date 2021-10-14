@@ -49,10 +49,13 @@
         <p><%= @post.pet.gender.capitalize %></p>
       </div>
       <div class="col-6">
-        <div id="map"
+      <div data-controller="show-map">
+        <div id="map" data-show-map-target="map"
           style="width: 100%; height: 400px;"
           data-marker="<%= @marker.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
       </div>
     </div>
   </div>

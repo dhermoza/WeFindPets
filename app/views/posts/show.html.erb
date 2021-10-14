@@ -1,17 +1,17 @@
 <section class="post-show-page">
   <!-- titulo -->
-
  <div class="p-3">
     <div class="d-flex justify-content-center">
 
       <h2 class="px-5">
         <%= @post.title.capitalize%>
       </h2>
-      <%= link_to "Editar", post_edit_path(@post), class: "btn btn-primary" %>
+      <%= link_to "Editar", edit_post_path(@post), class: "btn btn-primary" %>
     </div>
+    
     <div class="col-4">
           <%= link_to "Editar publicacion", edit_pet_post_path(@post), class: "btn btn-primary", id: "publication" %>
-       
+      
     </div>
   </div>
   <!-- img -->
@@ -41,9 +41,10 @@
 
             <h2>Caracteristicas</h2>
           </div>
+          <% #if policy(Post).edit? %>
           <div class="col-4">
             <%= link_to "Editar mascota", edit_pet_path(@post), class: "btn btn-primary", id: "publication" %>
-         
+         <% #end %>
       </div>
         </div>
         <p><%= @post.pet.animal.capitalize %></p>

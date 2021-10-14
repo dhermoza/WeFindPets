@@ -1,8 +1,11 @@
 class PostsController < ApplicationController
+  helper_method :build_post_path
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     if params[:query].present?
       query = "address @@ :query OR title @@ :query"
+      @flats = policy_scope(Flat).where("user_id = #{user_id}").geocoded
       @posts = Post.where(query, query: "%#{params[:query]}%").order("id ASC")
     else
       @posts = Post.all.order("id ASC")
@@ -11,17 +14,20 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    authorize @post
     @marker = { lat: @post.latitude, lng: @post.longitude }
   end
 
   def edit
     @post = Post.find(params[:id])
     @pet = @post.pet
+    authorize @post
   end
 
   def new
     @post = Post.new
     @pet = Pet.find(params[:pet_id])
+    authorize @post
   end
 
   def create
@@ -29,6 +35,7 @@ class PostsController < ApplicationController
     @pet = Pet.find(params[:pet_id])
     @post.pet = @pet
     @post.user = current_user
+    authorize @post
     if @post.save
       redirect_to pet_post_path(@pet, @post)
     else
@@ -43,6 +50,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @pet = Pet.find(params[:pet_id])
+    authorize @post
     if @post.update(post_params)
       flash[:success] = "Se actualizó correctamente"
       redirect_to  posts_path
@@ -71,7 +79,7 @@ class PostsController < ApplicationController
     @is_my_posts = params[:myposts] == '1'
     if @is_my_posts
       user_id = current_user.id
-      # @posts = policy_scope(Post).where("user_id = #{user_id}")
+      @posts = policy_scope(Post).where("user_id = #{user_id}")
       redirect_to posts_path
     else
       @post = Post.all

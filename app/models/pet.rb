@@ -7,6 +7,10 @@ class Pet < ApplicationRecord
   BREEDS = [
     ['Todos',nil],
     ['Pitbull','pitbull'],
+    ['Shiba inu','shiba inu'],
+    ['Schnauzer','schnauzer'],
+    ['Pastor aleman','pastor aleman'],
+    ['Husky siberiano','husky siberiano'],
     ['Dogo','dogo'],
     ['Mestizo','mestizo'],
     ['Pitbull terrier','pitbull terrier'],

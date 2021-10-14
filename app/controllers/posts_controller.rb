@@ -10,6 +10,13 @@ class PostsController < ApplicationController
     else
       @posts = Post.all.order("id ASC")
     end
+    @markers = @posts.geocoded.map do |post|
+      {
+        lat: post.latitude,
+        lng: post.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { post: post })
+      }
+    end
   end
 
   def show
@@ -56,6 +63,7 @@ class PostsController < ApplicationController
       redirect_to  posts_path
     else
       flash[:alert] = "Ingrese datos correctos"
+      # redirect_to post_edit_path(@post)
       redirect_to edit_post_path(@post)
     end
   end

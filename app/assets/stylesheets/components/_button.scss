@@ -1,12 +1,12 @@
 .btn-gradient {
-  color: gray;
+  color: $ourgray;
   padding: 8px 24px;
   border-radius: 4px;
   font-weight: bold;
-  background: linear-gradient(#e7f0f3, #fff);
+  background: $ourgreen;
 }
 
 .btn-gradient:hover {
-  background: #CDF0EA;
+  background: $ourlightgreen;
   color: gray;
 }

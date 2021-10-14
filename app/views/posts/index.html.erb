@@ -1,5 +1,5 @@
 <% @posts.each do |post| %>
-  <%= link_to  post_path(post), class: "card-trip-wrapper" do %>
+  <%= link_to  post_edit_path(post), class: "card-trip-wrapper" do %>
     <div class="card-trip">
       <% if !post.pet.photos.empty?  %>
         <%= cl_image_tag post.pet.photos.first.key, height: 150, width: 200, crop: :fill %>

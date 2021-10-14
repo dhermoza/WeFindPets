@@ -33,7 +33,7 @@
     <p><%= @post.pet.size.capitalize %></p>
     <p><%= @post.pet.gender.capitalize %></p>
   </div>
-
+  <%= link_to "Editar", post_edit_path(@post), class: "btn btn-primary" %>
   <div>
     <%= render "contact_form", post: @post %>
   </div>

@@ -1,11 +1,17 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all
+    @posts = Post.all.order("id ASC")
+
   end
 
   def show
     @post = Post.find(params[:id])
+  end
+
+  def edit
+    @post = Post.find(params[:id])
+    @pet = @post.pet
   end
 
   def new
@@ -28,6 +34,22 @@ class PostsController < ApplicationController
   def locate
 
   end
+
+  def update
+    @post = Post.find(params[:id])
+    @pet = Pet.find(params[:pet_id])
+    if @post.update(post_params)
+      flash[:success] = "Se actualizó correctamente"
+      redirect_to  posts_path
+    else
+      flash[:alert] = "Ingrese datos correctos"
+    end
+  end
+
+  #def build_post_path(post)
+    #@is_my_post_path ?  post_edit_path(post) : post_path(post)
+  #end
+
 
   private
 

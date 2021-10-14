@@ -51,6 +51,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    # authorize @flat
+    @post.destroy
+    flash[:success] = "Se elimino correctamente"
+    redirect_to posts_path
+  end
+
+
   #def build_post_path(post)
     #@is_my_post_path ?  post_edit_path(post) : post_path(post)
   #end

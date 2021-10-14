@@ -14,3 +14,13 @@
     </button>
   </div>
 <% end %>
+<% if flash[:success] %>
+  <script>
+    Swal.fire({
+      title: 'Éxito',
+      text: "<%= flash[:success] %>",
+      icon: 'success',
+      confirmButtonText: 'OK'
+    })
+  </script>
+<% end %>

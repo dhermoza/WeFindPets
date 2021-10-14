@@ -28,6 +28,19 @@ class PetsController < ApplicationController
     end
   end
 
+  def edit
+    @pet = Pet.find(params[:id])
+  end
+
+  def update
+    @pet = Pet.find(params[:id])
+    if @pet.update(pet_params)
+      redirect_to posts_path(myposts: '1')
+    else
+      redirect_to edit_post_path(@post)
+    end
+  end
+
   private
 
   def pet_params

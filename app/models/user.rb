@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :pets
   has_many :posts
+  has_many :messages
   # validates :name, :phone, presence: true
 end

@@ -1,8 +1,6 @@
 class PetPolicy < ApplicationPolicy
-
-
   def show?
-    true  # Anyone can view a flat
+    true 
   end
 
   def create?

@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container mt-5" data-controller="insert-map">
   <div class="row">
     <div class="col-6">
       <h3 class="mb-3 text-center">Crea tu Publicación</h3>
@@ -18,10 +18,11 @@
         </div>
       <div class="row">
         <div class="col-6">
-          <%= f.input :address, placeholder: "Dirección", label: false %>
+          <%= f.input :address, placeholder: "Dirección", label: false, input_html: { data: { insert_map_target: 'inputAddress' } } %>
         </div>
         <div class="col-6 align-self-start">
-          <%= link_to "Previsualizar", locate_path(@post), class: "btn btn-primary", id: "preview" %>
+          <%= link_to "Previsualizar", locate_path(@post), class: "btn btn-primary", id: "preview", data: { insert_map_target: 'preview',
+                      action: 'click->insert-map#showMap'} %>
         </div>
       </div>
       <div class="container text-center">
@@ -31,11 +32,14 @@
           </div>
         </div>
       </div>
-      <%end  %>
+      <% end %>
     </div>
     <p class="d-none">Coordenadas</p>
     <div class="col-6">
-        <div id="map" style="height: 300px; width: 600px" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        <div id="map" data-insert-map-target="map" style="height: 300px; width: 600px" data-marker="" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
+    <div id="out" data-insert-map-target="out">
+      <p></p>
     </div>
   </div>
 </div>

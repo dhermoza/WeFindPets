@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts
+  get '/myposts', to: "posts#myposts", as: :my_posts
   get 'post/locate', to: "posts#locate", as: :locate
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

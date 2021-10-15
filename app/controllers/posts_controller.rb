@@ -33,6 +33,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @pet = @post.pet
     authorize @post
+    @marker = { lat: @post.latitude, lng: @post.longitude }
   end
 
   def new
@@ -91,6 +92,13 @@ class PostsController < ApplicationController
   def myposts
     user_id = current_user.id
     @posts = policy_scope(Post).where("user_id = #{user_id}")
+    @markers = @posts.geocoded.map do |post|
+      {
+        lat: post.latitude,
+        lng: post.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { post: post })
+      }
+    end
     # redirect_to posts_path
   end
 

@@ -21,7 +21,11 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @message = Message.new
+    @message.user = current_user
+
     authorize @post
+
     @marker = { lat: @post.latitude, lng: @post.longitude }
   end
 

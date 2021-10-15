@@ -1,0 +1,17 @@
+<% @post.messages.each do |message| %>
+  <p>
+    <strong>name:</strong>
+  <%= message.user.name%>
+  </p>
+  <p>
+    <strong>description:</strong>
+  <%= message.description%>
+  </p>
+  <p>
+    <%= link_to 'Delete', post_message_path(@post, message),
+      method: :delete,
+      class: 'btn btn-danger ml-3',
+      data: { confirm: 'Estas seguro?' }
+    %>
+  </p>
+<% end %>

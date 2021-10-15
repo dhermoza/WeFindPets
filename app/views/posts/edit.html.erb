@@ -1,5 +1,5 @@
 
-<div class="container mt-5">
+<div class="container mt-5" data-controller="show-map">
   <div class="row">
     <div class="col-6">
       <div class="d-flex justify-content-center">
@@ -31,7 +31,7 @@
           <%= f.input :address, placeholder: "Dirección", label: false %>
         </div>
         <div class="col-6 align-self-start">
-          <%= link_to "Previsualizar", locate_path(@post), class: "btn btn-primary", id: "preview" %>
+          <%= link_to "Previsualizar", locate_path(@post), class: "btn btn-primary d-none", id: "preview" %>
         </div>
       </div>
       <div class="container text-center">
@@ -46,7 +46,7 @@
     </div>
     <p class="d-none">Coordenadas</p>
     <div class="col-6">
-        <div id="map" style="height: 300px; width: 600px" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        <div id="map" style="height: 300px; width: 600px" data-marker="<%= @marker.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>" data-show-map-target="map"></div>
     </div>
   </div>
 </div>

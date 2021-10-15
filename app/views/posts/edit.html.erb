@@ -10,7 +10,7 @@
           class: 'btn btn-danger ml-3',
           data: { confirm: 'Estas seguro?' }
         %>
-        <% if policy(@post).destroy? %>
+        <% end %>
       </div>
       <%= simple_form_for [@pet, @post] do |f| %>
       <div class="row">

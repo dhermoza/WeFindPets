@@ -16,7 +16,7 @@
     </button>
   </div>
   <% end %>
-  <h2 class="mt-5 mb-5 mr-5">Mascotas Perdidas</h2>
+  <h2 class="mt-5 mb-5 mr-5">Mascotas Encontradas</h2>
   <div class="cards">
     <% @last_founds.each do |pet| %>
      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= pet.photos.empty? ? "https://source.unsplash.com/800x600/?dog&lost" :  cl_image_path(pet.photos.first.key) %>')">
@@ -33,12 +33,12 @@
     </div>-->
   </div>
 
-  <h2 class="mt-5 mb-5 mr-5">Mascotas Encontradas</h2>
+  <h2 class="mt-5 mb-5 mr-5">Mascotas Perdidas</h2>
   <div class="cards">
-    <% @last_losts.each do |last_lost| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/800x600/?pet)">
-        <%=  last_lost.name%>
-      </div>
+    <% @last_losts.each do |pet| %>
+     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= pet.photos.empty? ? "https://source.unsplash.com/800x600/?dog&lost" :  cl_image_path(pet.photos.first.key) %>')">
+      <%= pet.name %>
+     </div>
     <% end %>
 
     <!--<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/800x600/?dog&lost)">

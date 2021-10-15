@@ -23,6 +23,14 @@
   margin: 0 auto;
 }
 
+.cont-filters{
+  background-color: #63615f1c;
+  border-radius: 10px;
+  margin: 1em;
+  color: $ourblue;
+  padding: 10px 0px;
+}
+
 @include media-breakpoint-down(sm) { 
   .cont-img{
     display: none;

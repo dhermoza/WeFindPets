@@ -11,6 +11,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  @include media-breakpoint-down(sm) { grid-template-columns: 1fr; }
+@include media-breakpoint-down(md) { grid-template-columns: 1fr; }
+  @include media-breakpoint-up(lg) { grid-template-columns: 1fr 1fr; }
+@include media-breakpoint-up(xl) { grid-template-columns: 1fr 1fr 1fr; }
+}
+.col-pets {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  
 }
 
 .card-category {

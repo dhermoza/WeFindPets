@@ -12,12 +12,15 @@
 
 .cont-img{
   background-image: asset-url('Animal_shelter_bro.svg');
-background-repeat: no-repeat;
-  
+  background-repeat: no-repeat;
   width: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.avatar-field{
+  width: 100px;
+  margin: 0 auto;
 }
 
 @include media-breakpoint-down(sm) { 

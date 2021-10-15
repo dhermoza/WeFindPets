@@ -1,10 +1,13 @@
 <div class="container my-5" data-controller="search-posts">
 
   
+
+
+<% if @posts.size != 0 %>
   <h3 class="pb-3">
   Mis publicaciones
   </h3>
-  <div class="row">
+   <div class="row">
     
     <div class="col-6">
         <div class="cards" data-search-posts-target="posts">
@@ -35,4 +38,17 @@
       </div>
     </div>
   </div>
+  <% else %>
+    <%= render "jumbotron", info: {
+      title: "Aun no tienes Publicaciones",
+      btn: "Crear publicación",
+      btn_path: new_pet_path,
+    } %>
+
+<% end %>
+
+
+
+  
+
 </div>

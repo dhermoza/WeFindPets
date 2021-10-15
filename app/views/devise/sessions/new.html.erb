@@ -1,20 +1,28 @@
-<h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "email" } %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+<div class="container-registrations pt-2">
+  <div class="cont-img">
   </div>
+  <div class="container-form ">
+     <h2 class=" text-center pb-2">Iniciar sesión</h2>
+<p>No tienes una cuenta?<span><%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+  <%= link_to "Registrate", new_registration_path(resource_name) %><br />
+<% end %></span></p>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-inputs text-start">
+      <%= f.input :email, placeholder: "Correo", label: false, required: false, autofocus: true, input_html: { autocomplete: "email" } %>
+      <%= f.input :password, placeholder: "Contraseña", label: false, required: false, input_html: { autocomplete: "current-password" } %>
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Ingresar", class: "btn-light-gradient w-100" %>
+    </div>
+    <% end %>
+<div class="text-center">
+  <%= render "devise/shared/links" %>
+</div>
+      
   </div>
-<% end %>
+ 
 
-<%= render "devise/shared/links" %>
+</div>

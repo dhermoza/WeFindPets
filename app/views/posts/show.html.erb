@@ -5,7 +5,9 @@
       <h2 class="px-5">
         <%= @post.title.capitalize%>
       </h2>
+      <% if policy(@post).edit? %>
        <%= link_to "Editar", edit_pet_post_path(@post), class: "btn btn-primary", id: "publication" %>
+    <% end %>
     </div>
   </div>
   <!-- img -->
@@ -29,9 +31,11 @@
           <div class="col-8 ">
             <h2>Caracteristicas</h2>
           </div>
+          <% if policy(@post).edit? %>
           <div class="col-4 ">
             <%= link_to "Editar mascota", edit_pet_path(@post), class: "btn btn-primary" %>
           </div>
+          <% end %>
         </div>
         </div>
         <p><%= @post.pet.name.capitalize %></p>

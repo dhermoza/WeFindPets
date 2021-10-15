@@ -1,4 +1,5 @@
 <div class="container my-5" data-controller="search-posts">
+
   <div>
     <%= simple_form_for :search, url: posts_path, method: :get, html: { data: { search_posts_target: 'form' } } do |f| %>
     <div class="search-form-control form-group">
@@ -7,7 +8,6 @@
         <i class="fas fa-search"></i> Search
       </button>
     </div>
-    <% end %>
   </div>
   <h3 class="pb-3">Resultados de la búsqueda:
   <% if @posts.size > 1  || @posts.size == 0%>
@@ -16,6 +16,7 @@
       <%=  pluralize @posts.size, "publicación" %>
   <% end %>
   </h3>
+  <% end %>
   <div class="row">
     <div class="col-6">
       <div data-controller="map-index">

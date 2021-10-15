@@ -6,8 +6,8 @@
         <%= @post.title.capitalize%>
       </h2>
       <% if policy(@post).edit? %>
-       <%= link_to "Editar", edit_pet_post_path(@post), class: "btn btn-primary", id: "publication" %>
-    <% end %>
+       <%= link_to "Editar", edit_post_path(@post), class: "btn btn-primary", id: "publication" %>
+      <% end %>
     </div>
   </div>
   <!-- img -->

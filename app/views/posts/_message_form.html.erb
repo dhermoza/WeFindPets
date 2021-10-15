@@ -1,5 +1,6 @@
-<% @post.messages.each do |message| %>
-  <p>
+<!--<div class="d-flex flex-column p-5 card-trip">
+  <% @post.messages.each do |message| %>
+  <p class="">
     <strong>name:</strong>
   <%= message.user.name%>
   </p>
@@ -7,7 +8,7 @@
     <strong>description:</strong>
   <%= message.description%>
   </p>
-  <p>
+  <p  >
     <%= link_to 'Delete', post_message_path(@post, message),
       method: :delete,
       class: 'btn btn-danger ml-3',
@@ -15,3 +16,30 @@
     %>
   </p>
 <% end %>
+
+</div>-->
+
+<div class="d-flex justify-content-center">
+  <div class="col-6">
+    <h5 class="mt-0 px-5 comment-title">Comentarios</h5>
+      <% @post.messages.each do |message| %>
+      <div class="card-trip">
+        <p class="px-5 py-3 comment">
+          <strong>Nombre del usuario:</strong>
+        <%= message.user.name%>
+        </p>
+        <p class="px-5 comment">
+          <strong>Descripción:</strong>
+        <%= message.description%>
+        </p>
+        <p class="col-md-12 text-center p-3">
+          <%= link_to 'Delete', post_message_path(@post, message),
+            method: :delete,
+            class: 'btn btn-gradient ml-3',
+            data: { confirm: 'Estas seguro?' }
+          %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>

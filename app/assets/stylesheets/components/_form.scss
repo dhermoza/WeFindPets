@@ -1,14 +1,12 @@
 .container-registrations{
   display: flex;
   justify-content: center;
-  max-width: 900px;
+  min-width: 400px;
+  max-width: 950px;
   margin: 0 auto;
 }
 .container-form{
-
-    padding: 1rem 2rem;
-
-    width: 40%;
+  padding: 1rem 2rem;
   max-width: 400px;
 }
 
@@ -26,4 +24,5 @@ background-repeat: no-repeat;
   .cont-img{
     display: none;
   }
+  
 }

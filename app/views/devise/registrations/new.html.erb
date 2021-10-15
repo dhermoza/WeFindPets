@@ -1,4 +1,11 @@
-<h2>Sign up</h2>
+<div class="container-registrations pt-2">
+  <div class="cont-img">
+  </div>
+  <div class="container-form ">
+     <h2 class=" text-center pb-2">Registrate</h2>
+<p>Ya tienes una cuenta?<span>
+  <%= link_to "Iniciar sesión",new_session_path(resource_name) %></span></p>
+
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -6,28 +13,33 @@
   <div class="form-inputs">
     <%= f.input :name,
                 required: true,
-                autofocus: true,
+                autofocus: true,placeholder: "Nombre completo", label: false,
                 input_html: { autocomplete: "name" }%>
     <%= f.input :email,
                 required: true,
-                autofocus: true,
+                autofocus: true,placeholder: "Correo", label: false,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :phone,
                 required: true,
                 autofocus: true,
+                placeholder: "Nº de celular", label: false,
                 input_html: { autocomplete: "phone" }%>
     <%= f.input :password,
                 required: true,
+                placeholder: "Contraseña", label: false,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
-                required: true,
+                required: true,placeholder: "Confirmar contraseña", label: false,
                 input_html: { autocomplete: "new-password" } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Registrarme", class: "btn-light-gradient w-100"%>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+  </div>
+ 
+
+</div>

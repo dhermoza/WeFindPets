@@ -84,14 +84,9 @@ class PostsController < ApplicationController
 
 
   def myposts
-    @is_my_posts = params[:myposts] == '1'
-    if @is_my_posts
-      user_id = current_user.id
-      @posts = policy_scope(Post).where("user_id = #{user_id}")
-      redirect_to posts_path
-    else
-      @post = Post.all
-    end
+    user_id = current_user.id
+    @posts = policy_scope(Post).where("user_id = #{user_id}")
+    # redirect_to posts_path
   end
 
   private

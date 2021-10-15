@@ -57,6 +57,7 @@
   </div>
 
  <!-- btn -->
+ <% if !policy(@post).edit? %>
   <div class="container">
     <div class="row">
       <div class="col text-center">
@@ -64,6 +65,9 @@
       </div>
     </div>
   </div>
+  <% end %>
 </section>
+
 <%= render "contact_form", post: @post %>
 <%= render "message_form", post: @post %>
+

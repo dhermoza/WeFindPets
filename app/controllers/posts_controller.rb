@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   def index
     if params[:query].present?
       query = "address @@ :query OR title @@ :query"
-      @flats = policy_scope(Flat).where("user_id = #{user_id}").geocoded
+      # @flats = policy_scope(Flat).where("user_id = #{user_id}").geocoded
       @posts = Post.where(query, query: "%#{params[:query]}%").order("id ASC")
     else
       @posts = Post.all.order("id ASC")

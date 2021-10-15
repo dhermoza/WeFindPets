@@ -26,8 +26,10 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Editar perfil", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Crea una mascota", new_pet_path, class: "dropdown-item" %>
-            <%= link_to "Mis publicaciones", my_posts_path(myposts: "1"), class: "dropdown-item" %>
+            <%= link_to "Mis publicaciones", my_posts_path(), class: "dropdown-item" %>
             <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "Create Pet", new_pet_path, class: "dropdown-item" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
       <% else %>

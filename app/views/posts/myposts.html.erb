@@ -1,0 +1,54 @@
+<div class="container my-5" data-controller="search-posts">
+
+  
+
+
+<% if @posts.size != 0 %>
+  <h3 class="pb-3">
+  Mis publicaciones
+  </h3>
+   <div class="row">
+    
+    <div class="col-6">
+        <div class="cards" data-search-posts-target="posts">
+          <% @posts.each do |post| %>
+            <%= link_to  post_path(post), class: "card-trip-wrapper" do %>
+              <div class="card-trip">
+                  <% if !post.pet.photos.empty?  %>
+                    <%= cl_image_tag post.pet.photos.first.key, height: 150, width: 200, crop: :fill %>
+                  <% end %>
+                  <div class="card-trip-infos">
+                    <div>
+                      <h5><%= post.title %></h5>
+                      <p class="t-overflow"><%= post.description %></p>
+                    </div>
+                  </div>
+              </div>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+    <div class="col-6">
+      <div data-controller="map-index">
+        <div id="map" data-map-index-target="map"
+          style="width: 100%; height: 800px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+      </div>
+    </div>
+  </div>
+  <% else %>
+    <%= render "jumbotron", info: {
+      title: "Aun no tienes Publicaciones",
+      btn: "Crear publicación",
+      btn_path: new_pet_path,
+    } %>
+
+<% end %>
+
+
+
+  
+
+</div>

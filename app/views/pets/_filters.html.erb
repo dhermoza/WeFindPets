@@ -1,6 +1,7 @@
+
 <h4>Filtrar por:</h4>
 <%= form_with url: pets_path, method: :get, local: true do |f| %>
-<div class="d-flex align-items-center">
+<div class="d-flex align-items-center justify-content-around">
     <div class="form-group col-3">
 <%= f.label :breed, "Breed" %>
 <%= f.select :breed, 
@@ -44,7 +45,7 @@
         %>
 </div>
 
-<%= f.submit "Filtrar", class: "btn-form btn-filters " %>
+<%= f.submit "Filtrar", class: "btn-light-gradient " %>
 
 </div>
 <% end %> 

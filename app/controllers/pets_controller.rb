@@ -12,6 +12,7 @@ class PetsController < ApplicationController
       puts "here2"
       @pets = Pet.where(color: params[:color])
     end
+    
   end
 
   def new

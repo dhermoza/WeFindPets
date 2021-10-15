@@ -1,0 +1,29 @@
+.container-registrations{
+  display: flex;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.container-form{
+
+    padding: 1rem 2rem;
+
+    width: 40%;
+  max-width: 400px;
+}
+
+.cont-img{
+  background-image: asset-url('Animal_shelter_bro.svg');
+background-repeat: no-repeat;
+  
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@include media-breakpoint-down(sm) { 
+  .cont-img{
+    display: none;
+  }
+}

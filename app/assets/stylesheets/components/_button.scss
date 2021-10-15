@@ -6,6 +6,19 @@
   background: $ourgreen;
 }
 
+.btn-light-gradient {
+  color: #ffffff;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: bold;
+  background: $ourgreen;
+}
+
+.btn-light-gradient:hover {
+  background: $otherpink;
+  color: $ourblue;
+}
+
 .btn-gradient:hover {
   background: $ourlightgreen;
   color: gray;

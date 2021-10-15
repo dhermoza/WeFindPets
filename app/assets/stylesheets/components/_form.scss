@@ -20,6 +20,10 @@ background-repeat: no-repeat;
   align-items: center;
 }
 
+.avatar-field{
+  width: 100px;
+  margin: 0 auto;
+}
 @include media-breakpoint-down(sm) { 
   .cont-img{
     display: none;

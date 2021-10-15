@@ -27,6 +27,7 @@ class PostsController < ApplicationController
     authorize @post
 
     @marker = { lat: @post.latitude, lng: @post.longitude }
+    authorize @post
   end
 
   def edit
@@ -88,9 +89,20 @@ class PostsController < ApplicationController
 
 
   def myposts
+<<<<<<< Updated upstream
     user_id = current_user.id
     @posts = policy_scope(Post).where("user_id = #{user_id}")
     # redirect_to posts_path
+=======
+    @is_my_posts = params[:myposts] == '1'
+    if @is_my_posts
+      user_id = current_user.id
+      @posts = policy_scope(Post).where("user_id = #{user_id}")
+      redirect_to posts_path
+    else
+      @post = Post.all
+    end
+>>>>>>> Stashed changes
   end
 
   private

@@ -14,6 +14,9 @@ class Pet < ApplicationRecord
     ['Dogo','dogo'],
     ['Mestizo','mestizo'],
     ['Pitbull terrier','pitbull terrier'],
+    ['Beagle','beagle'],
+    ['Bulldog','bulldog'],
+    ['Otros','otros'],
   ]
 
   SIZE = [
@@ -28,6 +31,8 @@ class Pet < ApplicationRecord
     ['Blanco','blanco'],
     ['Negro','negro'],
     ['Multi color','multi color'],
+    ['Café','café'],
+    ['Beige','beige'],
   ]
 
   GENDER = [

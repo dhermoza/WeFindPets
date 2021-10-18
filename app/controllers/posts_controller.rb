@@ -4,8 +4,15 @@ class PostsController < ApplicationController
 
   def index
     if params[:query].present?
-      query = "address @@ :query OR title @@ :query"
-      @posts = Post.where(query, query: "%#{params[:query]}%").order("id ASC")
+      query = " \
+        posts.address @@ :query \
+        OR posts.title @@ :query \
+        OR pets.breed @@ :query \
+        OR pets.size @@ :query \
+        OR pets.gender @@ :query \
+        OR pets.color @@ :query \
+      "
+      @posts = Post.joins(:pet).where(query, query: "%#{params[:query]}%").order("id ASC")
     elsif params[:breed].present?
       sql_query = "pets.breed ILIKE :query"
       @posts = Post.joins(:pet).where(sql_query, query: params[:breed])

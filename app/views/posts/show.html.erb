@@ -1,3 +1,4 @@
+
 <section class="post-show-page">
   <!-- titulo -->
  <div class="p-3">
@@ -14,9 +15,9 @@
  <div class="image-grid">
     <% @post.pet.photos.each_with_index do |photo,index| %>
       <% if index == 0 %>
-        <%= cl_image_tag photo.key, height: 150, width: 250, class: "image-grid-col-2 image-grid-row-2", crop: :thumb %>
+        <%= cl_image_tag photo.key, height: 150, width: 250, class: "image-grid-col-2 image-grid-row-2", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo#{index}" %>
       <% else %>
-        <%= cl_image_tag photo.key, height: 150, width: 250, crop: :thumb %>
+        <%= cl_image_tag photo.key, height: 150, width: 250, crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo#{index}" %>
       <% end %>
     <% end %>
  </div>
@@ -70,3 +71,4 @@
 
 <%= render "contact_form", post: @post %>
 <%= render "message_form", post: @post %>
+<%= render "photos_gallery", post: @post %>

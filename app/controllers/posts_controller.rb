@@ -5,8 +5,19 @@ class PostsController < ApplicationController
   def index
     if params[:query].present?
       query = "address @@ :query OR title @@ :query"
-      # @flats = policy_scope(Flat).where("user_id = #{user_id}").geocoded
       @posts = Post.where(query, query: "%#{params[:query]}%").order("id ASC")
+    elsif params[:breed].present?
+      sql_query = "pets.breed ILIKE :query"
+      @posts = Post.joins(:pet).where(sql_query, query: params[:breed])
+    elsif params[:size].present?
+      sql_query = "pets.size ILIKE :query"
+      @posts = Post.joins(:pet).where(sql_query, query: params[:size])
+    elsif params[:color].present?
+      sql_query = "pets.color ILIKE :query"
+      @posts = Post.joins(:pet).where(sql_query, query: params[:color])
+    elsif params[:gender].present?
+      sql_query = "pets.gender ILIKE :query"
+      @posts = Post.joins(:pet).where(sql_query, query: params[:gender])
     else
       @posts = Post.all.order("id ASC")
     end

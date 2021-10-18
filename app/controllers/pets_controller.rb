@@ -12,7 +12,7 @@ class PetsController < ApplicationController
       puts "here2"
       @pets = Pet.where(color: params[:color])
     end
-    
+
   end
 
   def new
@@ -36,7 +36,8 @@ class PetsController < ApplicationController
   def update
     @pet = Pet.find(params[:id])
     if @pet.update(pet_params)
-      redirect_to posts_path(myposts: '1')
+      flash['success'] = 'Se actualizó con éxito'
+      redirect_to posts_path
     else
       redirect_to edit_post_path(@post)
     end

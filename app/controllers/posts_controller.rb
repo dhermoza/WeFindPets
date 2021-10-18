@@ -67,7 +67,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     authorize @post
     if @post.save
-      flash['success'] = 'Se creó con exito'
+      flash['success'] = 'Se creó la publicación con éxito'
       redirect_to pet_post_path(@pet, @post)
     else
       render "new"

@@ -1,0 +1,70 @@
+<%= form_with url: posts_path, method: :get, local: true do |f| %>
+  <div class="d-flex align-items-center justify-content-around cont-filters">
+  <div class="row">
+      <div class="form-group col-6">
+        <%= f.label :breed, "Raza" %>
+        <%= f.select :breed,
+        options_for_select([
+                  ['Todos',nil],
+                  ['Todos',nil],
+                  ['Pitbull','pitbull'],
+                  ['Shiba inu','shiba inu'],
+                  ['Schnauzer','schnauzer'],
+                  ['Pastor aleman','pastor aleman'],
+                  ['Husky siberiano','husky siberiano'],
+                  ['Dogo','dogo'],
+                  ['Mestizo','mestizo'],
+                  ['Pitbull terrier','pitbull terrier'],
+                  ['Beagle','beagle'],
+                  ['Bulldog','bulldog'],
+                  ['Otros','otros'],
+                ]),
+                {},
+                { class:"form-control" }
+                %>
+      </div>
+      <div class="form-group col-6">
+        <%= f.label :size, "Tamaño" %>
+          <%= f.select :size,
+          options_for_select([
+                  ['Todos',nil],
+                  ['Pequeño','pequeño'],
+                  ['Mediano','mediano'],
+                  ['Grande','grande'],
+                ]),
+                {},
+                { class:"form-control" }
+                %>
+      </div>
+  </div>
+  <div class="row">
+      <div class="form-group col-6">
+        <%= f.label :color, "Color" %>
+        <%= f.select :color,
+        options_for_select([
+                  ['Todos',nil],
+                  ['Blanco','blanco'],
+                  ['Negro','negro'],
+                  ['Multi color','multi color'],
+                ]),
+                {},
+                { class:"form-control" }
+                %>
+      </div>
+      <div class="form-group col-6">
+        <%= f.label :gender, "Sexo" %>
+        <%= f.select :gender,
+        options_for_select([
+                  ['Todos',nil],
+                  ['Hembra','hembra'],
+                  ['Macho','macho'],
+                ]),
+                {},
+                { class:"form-control" }
+                %>
+      </div>
+  </div>
+      <%= f.submit "Filtrar", class: "btn-light-gradient " %>
+
+  </div>
+<% end %>

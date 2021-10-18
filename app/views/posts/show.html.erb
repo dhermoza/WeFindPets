@@ -33,7 +33,7 @@
           </div>
           <% if policy(@post).edit? %>
           <div class="col-4 ">
-            <%= link_to "Editar mascota", edit_pet_path(@post), class: "btn btn-primary" %>
+            <%= link_to "Editar mascota", edit_pet_path(@post.pet), class: "btn btn-primary" %>
           </div>
           <% end %>
         </div>

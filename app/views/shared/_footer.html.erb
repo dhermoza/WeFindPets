@@ -3,19 +3,17 @@
     <p class="text-center text-muted">¿Perdiste a tu mascota? Te ayudamos a encontrarla</p>
     <br>
     <ul class="nav justify-content-between border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><strong>Perdidos</strong></a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><strong>Encontrados</strong></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><strong><%= link_to "Perdidos", lost_posts_path, class: "nav-link px-2 text-muted" %></strong></a></li>
+      <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><strong><%= link_to "Encontrados", found_posts_path, class: "nav-link px-2 text-muted" %></strong></a></li>
       <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><strong>Contacto</strong></a></li>
       <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><strong>FAQ</strong></a></li>
       <li class="nav-item"><a href="#" class="nav-link px-2 text-muted"><strong>Legal</strong></a></li>
     </ul>
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
       <div class="footer-links">
-        <a href="#"><i class="fab fa-github"></i></a>
         <a href="#"><i class="fab fa-instagram"></i></a>
         <a href="#"><i class="fab fa-facebook"></i></a>
         <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
       </div>
     </ul>
   </footer>

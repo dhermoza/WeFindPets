@@ -20,7 +20,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
-  
+
 }
 
 .card-category {
@@ -87,9 +87,60 @@
   position: relative;
 }
 
-.card-trip-infos .card-trip-user {
+.card-trip-infos .card-trip-notifications {
   position: absolute;
   right: 16px;
-  top: -20px;
+  top: 70px;
   width: 40px;
+}
+
+.card-trip-infos .notification-actions {
+  opacity: 0;
+  display: flex;
+  transition: ease .3s;
+}
+
+.card-trip-infos:hover .notification-actions {
+  opacity: 1;
+}
+
+.card-trip-infos .notification-actions i {
+  color: #999999;
+  margin-left: 16px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.card-trip-infos .notification-actions i:hover {
+  color: #555555;
+  text-decoration: none;
+}
+
+.card-trip-infos .notification-actions a {
+  color: #999999;
+  margin-left: 16px;
+  font-size: 10px;
+  text-decoration: none;
+}
+.card-trip-infos .notification-actions a:hover {
+  color: #555555;
+  text-decoration: none;
+}
+
+.my-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  grid-gap: 16px;
+  @include media-breakpoint-down(sm) { grid-template-columns: 1fr; }
+  @include media-breakpoint-down(md) { grid-template-columns: 1fr; }
+  @include media-breakpoint-up(lg) { grid-template-columns: 1fr 1fr; }
+  @include media-breakpoint-up(xl) { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+
+.card-trip-infos a {
+  font-size: 1.25rem;
+  margin: 0;
+  color: black;
 }

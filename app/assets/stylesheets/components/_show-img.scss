@@ -17,13 +17,14 @@
     grid-template-columns: repeat(var(--num-cols), 1fr);
     grid-auto-rows: var(--row-height);
     gap: var(--gap);
-    max-width: 50%;
+    max-width: 100%;
     margin: auto;
   }
   .image-grid > img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 5px;
   }
   .image-grid-col-2 {
     grid-column: span 2;
@@ -32,4 +33,5 @@
   .image-grid-row-2 {
     grid-row: span 2;
   }
+
 }

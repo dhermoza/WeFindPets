@@ -1,18 +1,24 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatroom = Chatroom.all
+    @chatroom = Chatroom.all.select{ |chat| chat.user.id == current_user.id }
   end
+
   def show 
-    @post = Post.find(params[:id])
     @chatroom = Chatroom.find(params[:id])
-    if !@chatroom
-      @pet_report = Pet.where("id = #{@post.user_id}")
-      @chatroom = Chatroom.create(name: "#{current_user.name} y #{@pet_report.name}")
-     
+    if @chatroom.user == current_user || @chatroom.post.user == current_user
+      @message = Message.new
     else
+      redirect_to post_path(@chatroom.post), notice: "No existe"
     end
-    # @message = Message.new
-    # @post = Post.find(params[:id])
-    @message = Message.new
+   
+  end
+  
+  def create
+    @post = Post.find(params[:post_id])
+    @chatroom = Chatroom.find_by(user: current_user, post: @post)
+    if !@chatroom
+      @chatroom = Chatroom.create(name: "#{current_user.name} y #{@post.user.name}", user: current_user, post: @post)
+    end
+    redirect_to chatroom_path(@chatroom)
   end
 end

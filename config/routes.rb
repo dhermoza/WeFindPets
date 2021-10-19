@@ -12,8 +12,13 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    resources :messages
+    resources :chatrooms, only: :show
   end
+
+  resources :chatrooms do
+    resources :messages, only: :create
+  end
+
 
   get '/myposts', to: "posts#myposts", as: :my_posts
   get 'posts/locate', to: "posts#locate", as: :locate

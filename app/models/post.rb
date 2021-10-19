@@ -4,5 +4,5 @@ class Post < ApplicationRecord
   validates :title, :description, :address, :status, presence: true
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  has_many :messages
+  has_many :chatrooms
 end

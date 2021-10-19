@@ -14,19 +14,25 @@
   <!-- img -->
   <div class="d-flex justify-content-center">
     <% if @post.pet.photos.length == 1 %>
-      <%= cl_image_tag @post.pet.photos.first.key, height: 200, width: 250, class: "", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo0" %>
+      <%= cl_image_tag @post.pet.photos.first.key, height: 500, width: 500, class: "", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo0" %>
     <% elsif @post.pet.photos.length == 2 %>
       <div class="d-flex align-items-center px-2">
-        <%= cl_image_tag @post.pet.photos.first.key, height: 200, width: 250, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo0" %>
-        <%= cl_image_tag @post.pet.photos.second.key, height: 200, width: 250, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo1" %>
+        <%= cl_image_tag @post.pet.photos.first.key, height: 400, width: 400, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo0" %>
+        <%= cl_image_tag @post.pet.photos.second.key, height: 400, width: 400, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo1" %>
+      </div>
+    <% elsif @post.pet.photos.length == 3 %>
+      <div class="d-flex align-items-center px-2">
+          <%= cl_image_tag @post.pet.photos.first.key, height: 400, width: 400, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo0" %>
+          <%= cl_image_tag @post.pet.photos.second.key, height: 400, width: 400, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo1" %>
+          <%= cl_image_tag @post.pet.photos.third.key, height: 400, width: 400, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo2" %>
       </div>
     <% else %>
       <div class="image-grid">
         <% @post.pet.photos.each_with_index do |photo,index| %>
           <% if index == 0 %>
-            <%= cl_image_tag photo.key, height: 150, width: 250, class: "image-grid-col-2 image-grid-row-2", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo#{index}" %>
+            <%= cl_image_tag photo.key, height: 500, width: 500, class: "image-grid-col-2 image-grid-row-2", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo#{index}" %>
           <% else %>
-            <%= cl_image_tag photo.key, height: 150, width: 250, crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo#{index}" %>
+            <%= cl_image_tag photo.key, height: 500, width: 500, crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo#{index}" %>
           <% end %>
         <% end %>
       </div>

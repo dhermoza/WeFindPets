@@ -88,10 +88,14 @@
           <button class="btn btn-light-gradient" data-toggle="modal" data-target="#contactForm">Contactar</button>
         </div>
       </div>
+      <div class="col-4 text-center px-5 py-3">
+    
+      <%= link_to "Mensaje", post_chatrooms_path(@post.id), method: "post" %>
+      </div>
     </div>
   </div>
 </section>
 
-<%= render "contact_form", post: @post %>
-<%= render "message_form", post: @post %>
+<%#= render "contact_form", post: @post %>
+<%#= render "message_form", post: @post %>
 <%= render "photos_gallery", post: @post %>

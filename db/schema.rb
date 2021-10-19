@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_061945) do
+ActiveRecord::Schema.define(version: 2021_10_19_205511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,12 +36,24 @@ ActiveRecord::Schema.define(version: 2021_10_14_061945) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "chatrooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "post_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["post_id"], name: "index_chatrooms_on_post_id"
+    t.index ["user_id"], name: "index_chatrooms_on_user_id"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.text "description"
     t.bigint "user_id", null: false
     t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "chatroom_id", null: false
+    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["post_id"], name: "index_messages_on_post_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
@@ -92,6 +104,9 @@ ActiveRecord::Schema.define(version: 2021_10_14_061945) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "chatrooms", "posts"
+  add_foreign_key "chatrooms", "users"
+  add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "posts"
   add_foreign_key "messages", "users"
   add_foreign_key "pets", "users"

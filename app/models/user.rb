@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :messages
   # validates :name, :phone, presence: true
   has_one_attached :avatar
+  has_many :chatrooms
 end

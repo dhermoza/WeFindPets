@@ -1,33 +1,44 @@
 <div class="container my-5" data-controller="search-posts">
 
   <div>
-  <div class="row">
-   <h2>Busca tu mascota</h2>
-    <div class="col-12">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 pb-3">
+        <h2>Busca tu mascota</h2>
+      </div>
+    </div>
+  <div class="container" data-controller="show-filters">
+    <div class="d-none" data-show-filters-target="filter">
+      <div class="row">
+          <div class="col-12"><%= render "filters" %></div>
+      </div>
+    </div>
+   <div class="row">
+    <div class="col-4">
+      <button class="btn-light-gradient" data-show-filters-target="button" data-action="click->show-filters#show">Búsqueda Avanzada</button>
+    </div>
+    <div class="col-8">
       <%= simple_form_for :search, url: posts_path, method: :get, html: { data: { search_posts_target: 'form' } } do |f| %>
-      <div class="search-form-control form-group">
-        <input class="form-control string required" type="text" name="query" id="search_query" data-search-posts-target="input" />
-        <button name="button" type="submit" class="btn btn-flat" data-search-posts-target="button">
-          <i class="fas fa-search"></i> Buscar
-        </button>
+        <div class="search-form-control form-group">
+          <input class="form-control string required" type="text" name="query" id="search_query" data-search-posts-target="input" />
+          <button name="button" type="submit" class="btn btn-flat" data-search-posts-target="button">
+            <i class="fas fa-search"></i> Buscar
+          </button>
+        </div>
+      <% end %>
       </div>
     </div>
    </div>
-   <div class="row">
-    <h2>Filtrar por:</h2>
-      <div class="col-12">
-        <%= render "filters" %>
-      </div>
-    </div>
+  </div>
   </div>
   <h3 class="pb-3">Resultados de la búsqueda:
-  <% if @posts.size > 1  || @posts.size == 0%>
+    <% if @posts.size > 1  || @posts.size == 0%>
       <%= pluralize @posts.size, "publicaciones" %>
-  <% else %>
+    <% else %>
       <%=  pluralize @posts.size, "publicación" %>
-  <% end %>
+    <% end %>
   </h3>
-  <% end %>
+
   <div class="row">
     <div class="col-4">
       <div data-controller="map-index">
@@ -55,7 +66,7 @@
               </div>
             <% end %>
           <% end %>
-      </div>
+        </div>
     </div>
   </div>
 </div>

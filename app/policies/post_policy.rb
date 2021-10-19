@@ -6,7 +6,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def show?
-    true  
+    true
   end
 
   def create?
@@ -14,7 +14,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.user_id == user.id
+      record.user_id == user.id
   end
 
   def update?
@@ -24,5 +24,5 @@ class PostPolicy < ApplicationPolicy
   def destroy?
     record.user_id == user.id
   end
-  
+
 end

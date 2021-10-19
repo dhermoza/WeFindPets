@@ -41,9 +41,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @message = Message.new
     @message.user = current_user
-
     authorize @post
-
     @marker = { lat: @post.latitude, lng: @post.longitude }
   end
 
@@ -84,7 +82,7 @@ class PostsController < ApplicationController
     authorize @post
     if @post.update(post_params)
       flash[:success] = "Se actualizó correctamente"
-      redirect_to  posts_path
+      redirect_to  my_posts_path
     else
       flash[:alert] = "Ingrese datos correctos"
       # redirect_to post_edit_path(@post)
@@ -97,7 +95,7 @@ class PostsController < ApplicationController
     # authorize @flat
     @post.destroy
     flash[:success] = "Se elimino correctamente"
-    redirect_to posts_path
+    redirect_to my_posts_path
   end
 
 

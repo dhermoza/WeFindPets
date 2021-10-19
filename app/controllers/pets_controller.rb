@@ -37,7 +37,7 @@ class PetsController < ApplicationController
     @pet = Pet.find(params[:id])
     if @pet.update(pet_params)
       flash['success'] = 'Se actualizó con éxito'
-      redirect_to posts_path
+      redirect_to my_posts_path
     else
       redirect_to edit_post_path(@post)
     end

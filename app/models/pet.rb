@@ -9,6 +9,7 @@ class Pet < ApplicationRecord
 
   SIZE = [
     ['Todos',nil],
+    ['Otros','otros'],
     ['Toy','toy'],
     ['Pequeño','pequeño'],
     ['Mediano','mediano'],
@@ -33,6 +34,7 @@ class Pet < ApplicationRecord
 
   GENDER = [
     ['Todos',nil],
+    ['Otros','otros'],
     ['Hembra','hembra'],
     ['Macho','macho']
   ]

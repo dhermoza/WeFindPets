@@ -4,21 +4,7 @@
       <div class="form-group col-6">
         <%= f.label :breed, "Raza" %>
         <%= f.select :breed,
-        options_for_select([
-                  ['Todos',nil],
-                  ['Todos',nil],
-                  ['Pitbull','pitbull'],
-                  ['Shiba inu','shiba inu'],
-                  ['Schnauzer','schnauzer'],
-                  ['Pastor aleman','pastor aleman'],
-                  ['Husky siberiano','husky siberiano'],
-                  ['Dogo','dogo'],
-                  ['Mestizo','mestizo'],
-                  ['Pitbull terrier','pitbull terrier'],
-                  ['Beagle','beagle'],
-                  ['Bulldog','bulldog'],
-                  ['Otros','otros'],
-                ]),
+        options_for_select(Pet.breeds),
                 {},
                 { class:"form-control" }
                 %>
@@ -26,12 +12,14 @@
       <div class="form-group col-6">
         <%= f.label :size, "Tamaño" %>
           <%= f.select :size,
-          options_for_select([
-                  ['Todos',nil],
-                  ['Pequeño','pequeño'],
-                  ['Mediano','mediano'],
-                  ['Grande','grande'],
-                ]),
+          options_for_select(Pet::SIZE
+                #   [
+                #   ['Todos',nil],
+                #   ['Pequeño','pequeño'],
+                #   ['Mediano','mediano'],
+                #   ['Grande','grande'],
+                # ]
+                ),
                 {},
                 { class:"form-control" }
                 %>
@@ -41,12 +29,14 @@
       <div class="form-group col-6">
         <%= f.label :color, "Color" %>
         <%= f.select :color,
-        options_for_select([
-                  ['Todos',nil],
-                  ['Blanco','blanco'],
-                  ['Negro','negro'],
-                  ['Multi color','multi color'],
-                ]),
+        options_for_select(Pet::COLOR
+                #   [
+                #   ['Todos',nil],
+                #   ['Blanco','blanco'],
+                #   ['Negro','negro'],
+                #   ['Multi color','multi color'],
+                # ]
+                ),
                 {},
                 { class:"form-control" }
                 %>
@@ -54,17 +44,18 @@
       <div class="form-group col-6">
         <%= f.label :gender, "Sexo" %>
         <%= f.select :gender,
-        options_for_select([
-                  ['Todos',nil],
-                  ['Hembra','hembra'],
-                  ['Macho','macho'],
-                ]),
+        options_for_select(Pet::GENDER
+                #   [
+                #   ['Todos',nil],
+                #   ['Hembra','hembra'],
+                #   ['Macho','macho'],
+                # ]
+                ),
                 {},
                 { class:"form-control" }
                 %>
       </div>
   </div>
       <%= f.submit "Filtrar", class: "btn-light-gradient " %>
-
   </div>
 <% end %>

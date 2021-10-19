@@ -4,9 +4,27 @@ class PostsController < ApplicationController
 
   def index
     if params[:query].present?
-      query = "address @@ :query OR title @@ :query"
-      # @flats = policy_scope(Flat).where("user_id = #{user_id}").geocoded
-      @posts = Post.where(query, query: "%#{params[:query]}%").order("id ASC")
+      query = " \
+        posts.address @@ :query \
+        OR posts.title @@ :query \
+        OR pets.breed @@ :query \
+        OR pets.size @@ :query \
+        OR pets.gender @@ :query \
+        OR pets.color @@ :query \
+      "
+      @posts = Post.joins(:pet).where(query, query: "%#{params[:query]}%").order("id ASC")
+    elsif params[:breed].present?
+      sql_query = "pets.breed ILIKE :query"
+      @posts = Post.joins(:pet).where(sql_query, query: params[:breed])
+    elsif params[:size].present?
+      sql_query = "pets.size ILIKE :query"
+      @posts = Post.joins(:pet).where(sql_query, query: params[:size])
+    elsif params[:color].present?
+      sql_query = "pets.color ILIKE :query"
+      @posts = Post.joins(:pet).where(sql_query, query: params[:color])
+    elsif params[:gender].present?
+      sql_query = "pets.gender ILIKE :query"
+      @posts = Post.joins(:pet).where(sql_query, query: params[:gender])
     else
       @posts = Post.all.order("id ASC")
     end
@@ -23,9 +41,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @message = Message.new
     @message.user = current_user
-
     authorize @post
-
     @marker = { lat: @post.latitude, lng: @post.longitude }
   end
 
@@ -49,7 +65,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     authorize @post
     if @post.save
-      flash['success'] = 'Se creó con exito'
+      flash['success'] = 'Se creó la publicación con éxito'
       redirect_to pet_post_path(@pet, @post)
     else
       render "new"
@@ -66,7 +82,7 @@ class PostsController < ApplicationController
     authorize @post
     if @post.update(post_params)
       flash[:success] = "Se actualizó correctamente"
-      redirect_to  posts_path
+      redirect_to  my_posts_path
     else
       flash[:alert] = "Ingrese datos correctos"
       # redirect_to post_edit_path(@post)
@@ -79,7 +95,7 @@ class PostsController < ApplicationController
     # authorize @flat
     @post.destroy
     flash[:success] = "Se elimino correctamente"
-    redirect_to posts_path
+    redirect_to my_posts_path
   end
 
 

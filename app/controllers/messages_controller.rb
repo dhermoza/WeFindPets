@@ -4,11 +4,12 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @post = Post.find(params[:chatroom_id])
+    
     @chatroom = Chatroom.find(params[:chatroom_id])
+
     @message = Message.new(message_params)
     @message.user = current_user
-    @message.post = @post
+    @message.post = @chatroom.post
     @message.chatroom = @chatroom
 
     if @message.save

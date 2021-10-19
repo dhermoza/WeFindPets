@@ -1,13 +1,13 @@
 <div class="container-registrations pt-2">
 
   <div class="container-form ">
-     <h2 class=" text-center pb-2">Edit <%= resource_name.to_s.humanize %></h2>
+     <h2 class=" text-center pb-2">Editar <%= resource_name.to_s.humanize %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-     
+
         <div class= "avatar-img d-flex justify-content-center">
           <% if resource.avatar.attached? %>
             <%= cl_image_tag resource.avatar.key, height: 100, width: 100, crop: :fill, class: "rounded" %>
@@ -15,25 +15,25 @@
             <%= image_tag "user.png", alt: "User", class: "rounded-circle dropdown-toggle", height:100, width:100, id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           </div>
-        <div class= "avatar-field d-flex justify-content-center">
-          <%= f.file_field :avatar%>
+        <div class= "d-flex justify-content-center">
+          <%= f.input :avatar, as: :file, label: "Sube una foto", label_html: { class: "btn-gradient" }, input_html: { class: "d-none" }%>
         </div>
 
-    <%= f.input :email, 
+    <%= f.input :email,
                 label: "Correo",  required: true, autofocus: true %>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
     <%= f.input :name,
-    
+
                 label: "Nombre completo",
                 required: false,
                 autofocus: true,
                 input_html: { autocomplete: "name" }%>
     <%= f.input :password,
      label: "Contraseña",
-                hint: "leave it blank if you don't want to change it",
+                hint: "Dejar en blanco si no hay cambios",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
@@ -42,15 +42,15 @@
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
        label: "Contraseña actual",
-                hint: "we need your current password to confirm your changes",
+                hint: "Incluir contraseña para confirmar cambios",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
                 <br>
-    
+
   </div>
 
   <div class="form-actions d-flex justify-content-around ">
-  <%= link_to "Back", :back, class: "align-self-center" %>
+  <%= link_to "Regresar", :back, class: "align-self-center" %>
     <%= f.button :submit, "Actualizar", class: "btn-light-gradient" %>
   </div>
 <% end %>

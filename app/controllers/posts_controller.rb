@@ -28,6 +28,7 @@ class PostsController < ApplicationController
       @posts = Post.joins(:pet).where(sql_query, query: params[:gender])
     elsif params[:animal].present?
       sql_query = "pets.animal ILIKE :query"
+      puts "no lo borren por favor"
       @posts = Post.joins(:pet).where(sql_query, query: params[:animal])
     else
       @posts = Post.all.order("id ASC")

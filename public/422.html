@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The change you wanted was rejected (422)</title>
+  <meta charset="utf-8">
+  <title>El cambio que querías realizar fuer rechazado (422)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  .rails-default-error-page {
-    background-color: #EFEFEF;
-    color: #2E2F30;
+   .rails-default-error-page {
+    background-color: #fff2cd;
+    color: #63615f;
     text-align: center;
     font-family: arial, sans-serif;
     margin: 0;
@@ -23,7 +24,7 @@
     border-right-color: #999;
     border-left-color: #999;
     border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
+    border-top: #ffcdec solid 4px;
     border-top-left-radius: 9px;
     border-top-right-radius: 9px;
     background-color: white;
@@ -33,7 +34,7 @@
 
   .rails-default-error-page h1 {
     font-size: 100%;
-    color: #730E15;
+    color: #63615f;
     line-height: 1.5em;
   }
 
@@ -51,6 +52,13 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+  .banner img{
+    height: auto;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding-bottom: 50px;
+  }
   </style>
 </head>
 
@@ -58,10 +66,12 @@
   <!-- This file lives in public/422.html -->
   <div class="dialog">
     <div>
-      <h1>The change you wanted was rejected.</h1>
-      <p>Maybe you tried to change something you didn't have access to.</p>
+      <h1>El cambio que quisiste realizar se rechazó.</h1>
+      <p>Tal vez trataste de cambiar algo que no tenía autorización</p>
+      <div class="banner">
+        <img src="undraw_cancel_u1it.svg" alt="Error 422">
+      </div>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
 </body>
 </html>

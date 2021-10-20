@@ -1,6 +1,6 @@
 .banner {
   padding: 200px 0;
-  background-image: asset-url('undraw_Dog_walking_re_l61p.svg');
+  background-image: asset-url("undraw_Dog_walking_re_l61p.svg");
   height: auto;
   width: 100%;
   background-color: $otherpink;
@@ -12,7 +12,7 @@
 .banner h1 {
   margin: 0;
   color: $ourblue;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-size: 72px;
   font-weight: 300;
   letter-spacing: -2.5px;
@@ -24,6 +24,6 @@
 .banner p {
   font-size: 20px;
   color: $ourgray;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  opacity: 0.7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }

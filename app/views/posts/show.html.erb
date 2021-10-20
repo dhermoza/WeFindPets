@@ -11,10 +11,10 @@
   <div class="row">
     <div class="col-12">
       <div class="d-flex justify-content-center flex-wrap pt-5">
-      <div class="card-photo">
-        <% if @post.pet.photos.length == 1 %>
-          <%= cl_image_tag @post.pet.photos.first.key, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo0" %>
-      </div>
+        <div class="card-photo">
+          <% if @post.pet.photos.length == 1 %>
+            <%= cl_image_tag @post.pet.photos.first.key, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo0" %>
+        </div>
         <% elsif @post.pet.photos.length == 2 %>
           <div class="d-flex align-items-center px-2">
             <%= cl_image_tag @post.pet.photos.first.key, height: 400, width: 400, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo0" %>

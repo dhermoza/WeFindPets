@@ -55,6 +55,20 @@
                 { class:"form-control" }
                 %>
       </div>
+      <!--<div class="form-group col-6">
+        <%= f.label :gender, "Animal" %>
+        <%= f.select :gender,
+        options_for_select(Pet::ANIMAL
+                #   [
+                #   ['Todos',nil],
+                #   ['Hembra','hembra'],
+                #   ['Macho','macho'],
+                # ]
+                ),
+                {},
+                { class:"form-control" }
+                %>
+      </div>-->
   </div>
       <%= f.submit "Filtrar", class: "btn-light-gradient " %>
   </div>

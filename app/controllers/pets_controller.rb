@@ -12,7 +12,6 @@ class PetsController < ApplicationController
       puts "here2"
       @pets = Pet.where(color: params[:color])
     end
-
   end
 
   def new
@@ -40,6 +39,16 @@ class PetsController < ApplicationController
       redirect_to my_posts_path
     else
       redirect_to edit_post_path(@post)
+    end
+  end
+
+  def get_breeds
+    if params[:pet_animal] == 'perro'
+      render json: Pet.breeds
+    elsif params[:pet_animal] == 'otros'
+      render json: Pet.other_breeds
+    else
+      render json: Pet.breed_cats
     end
   end
 

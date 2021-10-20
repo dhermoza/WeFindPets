@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
-
+  get 'pet_breeds', to: "pets#get_breeds", as: :get_breeds
   get '/myposts', to: "posts#myposts", as: :my_posts
   get 'posts/locate', to: "posts#locate", as: :locate
   # get 'post/:id/edit', to: "posts#edit", as: :post_edit

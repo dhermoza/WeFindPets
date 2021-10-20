@@ -39,6 +39,13 @@ class Pet < ApplicationRecord
     ['Macho','macho']
   ]
 
+  ANIMAL = [
+    ['Todos',nil],
+    ['Otros','otros'],
+    ['Perro','perro'],
+    ['Gato','gato']
+  ]
+
   def self.breeds
     breeds_response = RestClient.get("https://dog.ceo/api/breeds/list/all")
     breeds_hash = JSON.parse(breeds_response)['message']
@@ -52,19 +59,24 @@ class Pet < ApplicationRecord
       ['Otros','otros'],
     ].concat breeds_option
   end
-end
 
-# BREEDS = [
-  #   ['Todos',nil],
-  #   ['Pitbull','pitbull'],
-  #   ['Shiba inu','shiba inu'],
-  #   ['Schnauzer','schnauzer'],
-  #   ['Pastor aleman','pastor aleman'],
-  #   ['Husky siberiano','husky siberiano'],
-  #   ['Dogo','dogo'],
-  #   ['Mestizo','mestizo'],
-  #   ['Pitbull terrier','pitbull terrier'],
-  #   ['Beagle','beagle'],
-  #   ['Bulldog','bulldog'],
-  #   ['Otros','otros'],
-  # ]
+  def self.other_breeds
+    [
+      ['Todos',nil],
+    ]
+  end
+
+  def self.breed_cats
+    breeds_response = RestClient.get("https://api.thecatapi.com/v1/breeds")
+    breeds = JSON.parse(breeds_response)
+    breeds_option = breeds.map do |breed_hash|
+      breed = breed_hash['name']
+      [breed.capitalize, breed]
+    end
+    return [
+      ['Todos',nil],
+      ['Mestizo','mestizo'],
+      ['Otros','otros'],
+    ].concat breeds_option
+  end
+end

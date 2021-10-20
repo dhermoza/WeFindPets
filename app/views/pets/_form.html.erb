@@ -1,3 +1,4 @@
+<input type="hidden" id="get_breeds_path" value="<%= get_breeds_path %>">
 <%= simple_form_for @pet do |f|%>
   <div class="row">
     <div class="col align-items-center">
@@ -25,7 +26,8 @@
         <%= f.input :breed, collection: Pet.breeds.reject { |s| s[0]== "Todos" }, include_blank: false, :prompt => 'Raza',  label: false %>
     </div>
     <div class="col">
-    <%= f.input :animal, placeholder: "Tipo de Animal", label: false %>
+        <%= f.input :animal, collection: Pet::ANIMAL.reject { |s| s[0]== "Todos" }, include_blank: false, :prompt => 'animal',  label: false %>
+        <!--<%= f.input :animal, placeholder: "Tipo de Animal", label: false %>-->
     </div>
   </div>
   <div class="row">

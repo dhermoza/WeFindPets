@@ -11,8 +11,8 @@
         %>
 
 </div>
-  <div class="form-group col-3">
- <%= f.label :size, "Size" %>
+<div class="form-group col-3">
+  <%= f.label :size, "Size" %>
   <%= f.select :size,
    options_for_select( Pet::SIZE
      # [
@@ -26,11 +26,10 @@
         { class:"form-control" }
         %>
 </div>
-  <div class="form-group col-3">
-
- <%= f.label :color, "Color" %>
-<%= f.select :color,
- options_for_select(Pet::COLOR
+<div class="form-group col-3">
+  <%= f.label :color, "Color" %>
+  <%= f.select :color,
+  options_for_select(Pet::COLOR
          # [
         #   ['Todos',nil],
         #   ['Blanco','blanco'],
@@ -38,6 +37,13 @@
         #   ['Multi color','multi color'],
         # ]
         ),
+        {},
+        { class:"form-control" }
+        %>
+</div>
+
+<%= f.select :breed,
+  options_for_select(Pet::ANIMAL),
         {},
         { class:"form-control" }
         %>

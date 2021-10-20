@@ -2,7 +2,10 @@
   <div class="container text-left">
     <h1>We Find Pets</h1>
     <p>¿Perdiste a tu mascota? Te ayudamos a encontrarla</p>
-    <%= link_to "Empezar ahora", new_pet_path, class: "btn btn-gradient" %>
+    <div class="container pt-3">
+      <%= link_to "Publicar", new_pet_path, class: "btn btn-gradient" %>
+      <%= link_to "Buscar", posts_path, class: "btn btn-gradient mx-5" %>
+    </div>
   </div>
 </div>
 
@@ -10,27 +13,28 @@
   <div class="container text-center">
       <div class="row">
         <div class="col">
-          <h1 class="py-5">Empieza a usar WeFindPets fácilmente</h1>
+          <h1 class="py-5">Empieza a usar We Find Pets fácilmente</h1>
+          <br>
         </div>
       </div>
       <div class="row">
         <div class="col-4">
-          <img src="" alt="">
-          <h2 class="py-5">Llena los datos de la mascota</h2>
+          <br>
           <%= image_tag "forn-pet.png", width: 200, alt: "forn-pet"%>
-          <p>Empieza llenando los datos de la mascota Ya sea que encontraste una mascota o perdiste a tu mascota</p>
+          <h2 class="py-5">1. Llena los datos de la mascota</h2>
+          <p>Crea una cuenta y llena los datos con las características de la mascota</p>
         </div>
         <div class="col-4">
-          <img src="" alt="">
-          <h2 class="py-5">Crea la publicación</h2>
+          <br>
           <%= image_tag "share-pets", width: 200, alt: "share-pets"%>
-          <p>Llena los datos del aviso con información de lugar y fecha</p>
+          <h2 class="py-5">2. Crea la publicación</h2>
+          <p>Completa los datos del aviso con información de lugar y fecha del reporte</p>
         </div>
         <div class="col-4">
-          <img src="" alt="">
-          <h2 class="py-5">Encuentra tu mascota</h2>
+          <br>
           <%= image_tag "pet-reunion", width: 200, alt: "pet-reunion"%>
-          <p>Permite que otros usuarios encuentren a su mascota contactando si viste a su mascota</p>
+          <h2 class="py-5">3. Encuentra a tu mascota</h2>
+          <p>Una vez publicado el anuncio, si alguien ve a tu mascota te contactará fácilmente</p>
         </div>
       </div>
     </div>
@@ -41,20 +45,11 @@
   <div class="container busqueda">
     <div class="row">
       <div class="col">
-            <h2 class="mt-5 mb-5 mr-5">Busca tu mascota</h2>
-            <%= simple_form_for :search, url: posts_path, method: :get do |f| %>
-              <div class="search-form-control form-group">
-                <input class="form-control string required" type="text" name="query" id="search_query" />
-                <button name="button" type="submit" class="btn btn-flat">
-                  <i class="fas fa-search"></i> Search
-                </button>
-              </div>
-            <% end %>
             <h2 class="mt-5 mb-5 mr-5">Mascotas Encontradas</h2>
               <div class="cards">
                 <% @last_founds.each do |pet| %>
                 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= pet.photos.empty? ? "https://source.unsplash.com/800x600/?dog&lost" :  cl_image_path(pet.photos.first.key) %>')">
-                  <%= pet.name %>
+                  <%= pet.name%>
                 </div>
                 <% end %>
               </div>
@@ -70,18 +65,19 @@
     </div>
   </div>
 </section>
-
+<br>
+<br>
 <section>
 <div class="py-5 container justify-content-center">
   <div class="row align-items-center">
-    <div class="col-8">
-      <div>
-        <%= image_tag "adam-griffith-sWkkIiTJMYc-unsplash.jpg", height: 500, width: 500,  alt: "Reunited"%>
+    <div class="col-9">
+      <div class="testimonial-card">
+        <%= image_tag "adam-griffith-sWkkIiTJMYc-unsplash.jpg", height: 500, width: 700,  alt: "Reunited"%>
       </div>
     </div>
-    <div class="col-4">
-      <div class="align-self-baseline">
-        <p>"Gracias a WeFindPets pude encontrar rápidamente a mi mascota"</p>
+    <div class="col-3">
+      <div class="align-self-baseline text-center testimonial">
+        <p>"Gracias a We Find Pets pude encontrar a mi mascota de forma rápida"</p>
       </div>
     </div>
   </div>

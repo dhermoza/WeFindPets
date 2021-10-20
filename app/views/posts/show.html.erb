@@ -1,49 +1,41 @@
+
 <section class="post-show-page">
 
   <div class="container">
-    <!-- titulo -->
+  <!-- titulo -->
 
-    <!-- img -->
-    <div class="row">
-      <div class="col">
-        <div class="d-flex justify-content-center flex-wrap pt-5">
-          <% if @post.pet.photos.length==1 %>
-            <%= cl_image_tag @post.pet.photos.first.key, height: 500, width: 500, class: "p-3" , crop:
-              :thumb, 'data-toggle' : :modal, 'data-target' : "#photo0" %>
-              <% elsif @post.pet.photos.length==2 %>
-                <div class="d-flex align-items-center px-2">
-                  <%= cl_image_tag @post.pet.photos.first.key, height: 400, width: 400, class: "p-3" , crop:
-                    :thumb, 'data-toggle' : :modal, 'data-target' : "#photo0" %>
-                    <%= cl_image_tag @post.pet.photos.second.key, height: 400, width: 400, class: "p-3" , crop:
-                      :thumb, 'data-toggle' : :modal, 'data-target' : "#photo1" %>
-                </div>
-                <% elsif @post.pet.photos.length==3 %>
-                  <div class="d-flex align-items-center px-2">
-                    <%= cl_image_tag @post.pet.photos.first.key, height: 400, width: 400, class: "p-3" , crop:
-                      :thumb, 'data-toggle' : :modal, 'data-target' : "#photo0" %>
-                      <%= cl_image_tag @post.pet.photos.second.key, height: 400, width: 400, class: "p-3" , crop:
-                        :thumb, 'data-toggle' : :modal, 'data-target' : "#photo1" %>
-                        <%= cl_image_tag @post.pet.photos.third.key, height: 400, width: 400, class: "p-3" , crop:
-                          :thumb, 'data-toggle' : :modal, 'data-target' : "#photo2" %>
-                  </div>
-                  <% else %>
-                    <div class="image-grid">
-                      <% @post.pet.photos.each_with_index do |photo,index| %>
-                        <% if index==0 %>
-                          <%= cl_image_tag photo.key, height: 500, width: 500,
-                            class: "image-grid-col-2 image-grid-row-2" , crop: :thumb, 'data-toggle' :
-                            :modal, 'data-target' : "#photo#{index}" %>
-                            <% else %>
-                              <%= cl_image_tag photo.key, height: 500, width: 500, crop: :thumb, 'data-toggle' :
-                                :modal, 'data-target' : "#photo#{index}" %>
-                                <% end %>
-                                  <% end %>
-                    </div>
-                    <% end %>
-        </div>
+  <!-- img -->
+  <div class="row">
+    <div class="col">
+      <div class="d-flex justify-content-center flex-wrap pt-5">
+        <% if @post.pet.photos.length == 1 %>
+          <%= cl_image_tag @post.pet.photos.first.key, height: 500, width: 500, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo0" %>
+        <% elsif @post.pet.photos.length == 2 %>
+          <div class="d-flex align-items-center px-2">
+            <%= cl_image_tag @post.pet.photos.first.key, height: 400, width: 400, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo0" %>
+            <%= cl_image_tag @post.pet.photos.second.key, height: 400, width: 400, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo1" %>
+          </div>
+        <% elsif @post.pet.photos.length == 3 %>
+          <div class="d-flex align-items-center px-2">
+              <%= cl_image_tag @post.pet.photos.first.key, height: 400, width: 400, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo0" %>
+              <%= cl_image_tag @post.pet.photos.second.key, height: 400, width: 400, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo1" %>
+              <%= cl_image_tag @post.pet.photos.third.key, height: 400, width: 400, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo2" %>
+          </div>
+        <% else %>
+          <div class="image-grid">
+            <% @post.pet.photos.each_with_index do |photo,index| %>
+              <% if index == 0 %>
+                <%= cl_image_tag photo.key, height: 500, width: 500, class: "image-grid-col-2 image-grid-row-2", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo#{index}" %>
+              <% else %>
+                <%= cl_image_tag photo.key, height: 500, width: 500, crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo#{index}" %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
-    <!--<div class="image-grid">
+  </div>
+ <!--<div class="image-grid">
     <% @post.pet.photos.each_with_index do |photo,index| %>
       <% if index == 0 %>
         <%= cl_image_tag photo.key, height: 150, width: 250, class: "image-grid-col-2 image-grid-row-2", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo#{index}" %>
@@ -52,88 +44,72 @@
       <% end %>
     <% end %>
  </div>-->
-    <!-- descripcion -->
-    <div class=" container d-flex justify-content-center pt-3">
+  <!-- descripcion -->
+  <div class=" container d-flex justify-content-center pt-3">
       <div class="col-6">
-        <h2 class="pb-3">
-          <%= @post.title.capitalize%>
-        </h2>
-
-        <div class="row">
-          <div class="col-6">
-            <p>
-              <%= @post.user.name %>
-            </p>
-            <p>Fecha reportado: <%= @post.created_at.strftime("%d/%b/%Y") %>
-            </p>
-          </div>
-          <div class="col-6 text-center">
-            <% if current_user.avatar.attached? %>
-              <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle" , id: "navbarDropdown" , data: {
-              toggle: "dropdown" }, 'aria-haspopup' : true, 'aria-expanded' : false %>
-              <% else %>
-              <%= image_tag "user.png" , alt: "User" , class: "avatar dropdown-toggle" , id: "navbarDropdown" ,
-                data: { toggle: "dropdown" }, 'aria-haspopup' : true, 'aria-expanded' : false %>
-              <% end %>
-          </div>
-        </div>
-        <br>
-        <h3 class="pb-3">Identifica a <%= @post.pet.name %> con las siguientes características: </h3>
-        <div class="row">
-          <div class="col-4">
-            <p>Nombre:</p>
-            <p>Sexo:</p>
-            <p>Tamaño:</p>
-            <p>Tipo de animal:</p>
-            <p>Raza:</p>
-          </div>
-          <div class="col-8">
-            <p>
-              <%= @post.pet.name.capitalize %>
-            </p>
-            <p>
-              <%= @post.pet.gender.capitalize %>
-            </p>
-            <p>
-              <%= @post.pet.size.capitalize %>
-            </p>
-            <p>
-              <%= @post.pet.animal.capitalize %>
-            </p>
-            <p>
-              <%= @post.pet.breed.capitalize %>
-            </p>
-          </div>
-        </div>
-        <div class="row">
-          <% if @post.user.id==current_user.id %>
-            <div class="col-6 col-sm-12 px-0 d-flex justify-content-between text-center px-2 py-3">
-              <h5>Lo has visto?</h5>
+          <h2 class="pb-3"><%= @post.title.capitalize%></h2>
+          
+          <div class="row">
+            <div class="col-6">
+              <p><%= @post.user.name %></p>
+          <p>Fecha reportado: <%= @post.created_at.strftime("%d/%b/%Y") %></p>
             </div>
-            <div class="col-6 px-0 col-sm-12 d-flex justify-content-between text-center px-2 py-3">
-              <%= link_to "Contactar" , post_chatrooms_path(@post.id), class:"btn btn-light-gradient", method: "post" %>
+            <div class="col-6 text-center">
+              <% if @post.user.avatar.attached? %>
+            <%= cl_image_tag @post.user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "user.png", alt: "User", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
             </div>
-            <% end %>
-
-        </div>
+          </div>
+          <br>
+          <h3 class="pb-3">Identifica a <%= @post.pet.name %> con las siguientes características: </h3>
+          <div class="row">
+            <div class="col-4">
+              <p>Nombre:</p>
+              <p>Sexo:</p>
+              <p>Tamaño:</p>
+              <p>Tipo de animal:</p>
+              <p>Raza:</p>
+            </div>
+            <div class="col-8">
+              <p><%= @post.pet.name.capitalize %></p>
+              <p><%= @post.pet.gender.capitalize %></p>
+              <p><%= @post.pet.size.capitalize %></p>
+              <p><%= @post.pet.animal.capitalize %></p>
+              <p><%= @post.pet.breed.capitalize %></p>
+            </div>
+          </div>
+             <div class="row">
+        <% if @post.user.id != current_user.id %>
+           <div class="col-6 align-items-end px-0 d-flex justify-content-between text-center px-2 py-3">
+    <h5>Lo has visto?</h5>
+    </div>
+    <div class="col-6 px-0  d-flex justify-content-between text-center px-2 py-3">
+              <%= link_to "Contactar", post_chatrooms_path(@post.id), class:"btn btn-light-gradient", method: "post" %>
+                </div>
+        <% end %>
+     
+    </div>
       </div>
       <div class="col-6">
-        <p><i class="fas fa-map-marked-alt"></i> Dirección <%= @post.address%>
-        </p>
+        <p><i class="fas fa-map-marked-alt"></i> Dirección <%= @post.address%></p>
         <div data-controller="show-map">
-          <div id="map" data-show-map-target="map" style="width: 100%; height: 400px;"
-            data-marker="<%= @marker.to_json %>" data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          <div id="map" data-show-map-target="map"
+            style="width: 100%; height: 400px;"
+            data-marker="<%= @marker.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
         </div>
       </div>
-    </div>
+  </div>
 
-    <!-- btn -->
+ <!-- btn -->
     <div class="container">
-
-    </div>
+   
+  </div>
 </section>
 
-<%#= render "contact_form" , post: @post %>
-<%#= render "message_form" , post: @post %>
-<%= render "photos_gallery" , post: @post %>
+<%#= render "contact_form", post: @post %>
+<%#= render "message_form", post: @post %>
+<%= render "photos_gallery", post: @post %>

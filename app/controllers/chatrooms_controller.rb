@@ -1,6 +1,10 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatroom = Chatroom.all.select{ |chat| chat.user.id == current_user.id || chat.post.user.id = current_user.id }
+    @chatrooms = Chatroom.all.select{ |chat| chat.user.id == current_user.id || chat.post.user.id == current_user.id}
+    # @chatrooms_by_post = Chatroom.all.select{ |chat| chat.post.user.id == current_user.id }
+
+    # @chatrooms_total = @chatrooms +  @chatrooms_by_post
+    # byebug
   end
 
   def show 

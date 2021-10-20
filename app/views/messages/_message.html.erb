@@ -1,7 +1,27 @@
-<div class="message-container" id="message-<%= message.id %>">
-  <i class="author">
-    <span><%#= message.user.nickname %></span>
-    <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-  </i>
-  <p><%= message.description %></p>
+<div class="message-container " id="message-<%= message.id %>">
+  <div class="author">
+ 
+ <div class="row">
+   <div class="col-1">
+    <%= render "shared/avatar", user: {
+        avatar: message.user.avatar
+      } %>
+   </div>
+   <div class="col">
+<span><%= message.user.name %></span>
+<div><p><%= message.description %></p></div>
+   </div>
+   <div class="col">
+
+   </div>
+ </div>
+
+
+
+    
+    
+    <small><%= message.created_at.strftime("%l:%M%p") %></small>
+  </div>
+  
+  
 </div>

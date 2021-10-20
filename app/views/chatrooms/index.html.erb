@@ -1,5 +1,5 @@
 <ul>
-<% @chatroom.each do |msn| %>
-  <li><%= link_to "#{msn.name}", chatroom_path(msn.id) %></li>
-<% end %>
+  <% @chatrooms.each do |msn| %>
+        <li><%= link_to "#{msn.name}", chatroom_path(msn.id) %></li>
+  <% end %>
 </ul>

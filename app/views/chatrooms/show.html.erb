@@ -1,13 +1,35 @@
 <div class="container">
-<h1>#chat </h1>
+<% if @chatroom.user.id == current_user.id %>
+  <h1><%= @chatroom.post.user.name %></h1>
+<% else %>
+  <h1><%= @chatroom.user.name %></h1>
+<% end %>
+<h1><%= @chat %></h1>
 <div id="messages" data-chatroom-id=<%= @chatroom.id %>">
   <% @chatroom.messages.each do |message| %>
     <%= render "messages/message", message: message %>
   <% end %>
 </div>
-<%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-  <%= f.input :description, label: false, placeholder: "Message ##{@chatroom.name}" %>
+<div class="row">
+  <div class="col-1">
+    <% if current_user.avatar.attached? %>
+            <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "user.png", alt: "User", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+  </div>
+  <div class="col-11">
+    <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+    <div class="row">
+    <div class="col-9">
+  <%= f.input :description, label: false, placeholder: "Escribe tu mensaje..." %>
+  </div>
+  <div class="col-3">
           <%= f.button :submit, class: "btn btn-primary" %>
+          </div>
 
 <% end %>
+  </div>
+</div>
+
 </div>

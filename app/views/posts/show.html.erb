@@ -56,6 +56,17 @@
           <h2 class="pb-3"><%= @post.title.capitalize%></h2>
           <p><%= @post.description.capitalize %></p>
           <p>Se perdió el <%= @post.created_at.strftime("%d/%b/%Y") %></p>
+          <div class="row">
+            <div class="col-6">
+              <p><%= @post.user.name %></p>
+            </div>
+            <div class="col-6 text-center">
+              <% if @post.user.avatar.attached? %>
+            <%= cl_image_tag @post.user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "user.png", alt: "User", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+            </div>
           </div>
           <br>
           <h3 class="pb-3">Identifica a <strong><%= @post.pet.name %></strong> con las siguientes características: </h3>
@@ -81,6 +92,17 @@
               </div>
             </div>
           </div>
+             <div class="row">
+        <% if @post.user.id != current_user.id %>
+           <div class="col-6 align-items-end px-0 d-flex justify-content-between text-center px-2 py-3">
+    <h5>Lo has visto?</h5>
+    </div>
+    <div class="col-6 px-0  d-flex justify-content-between text-center px-2 py-3">
+              <%= link_to "Contactar", post_chatrooms_path(@post.id), class:"btn btn-light-gradient", method: "post" %>
+                </div>
+        <% end %>
+
+    </div>
       </div>
       <div class="col-6">
         <p><i class="fas fa-map-marked-alt"></i> Dirección <%= @post.address%></p>
@@ -96,16 +118,7 @@
 
  <!-- btn -->
     <div class="container">
-      <div class="row">
-        <div class="col text-center px-5 py-5">
-          <button class="btn btn-light-gradient" data-toggle="modal" data-target="#contactForm">Contactar</button>
-        </div>
-      </div>
-      <div class="col-4 text-center px-5 py-3">
 
-      <%= link_to "Mensaje", post_chatrooms_path(@post.id), method: "post" %>
-      </div>
-    </div>
   </div>
 </section>
 

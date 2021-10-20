@@ -27,7 +27,7 @@ class MessagesController < ApplicationController
     @post = Post.find(params[:post_id])
     @message = Message.find(params[:id])
     @message.destroy
-    redirect_to post_path @post
+    redirect_to post_chatroom @post
   end
 
   private

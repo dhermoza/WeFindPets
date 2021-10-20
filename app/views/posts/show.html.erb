@@ -50,26 +50,32 @@
     <% end %>
  </div>-->
   <!-- descripcion -->
+
+
   <div class=" container d-flex justify-content-center pt-3">
+    <div class="row">
       <div class="col-6">
-          <div class="card-description">
+        <div class="card-description">
           <h2 class="pb-3"><%= @post.title.capitalize%></h2>
-          <p><%= @post.description.capitalize %></p>
-          <p>Se perdió el <%= @post.created_at.strftime("%d/%b/%Y") %></p>
-          <div class="row">
-            <div class="col-6">
-              <p><%= @post.user.name %></p>
+            <p><%= @post.description.capitalize %></p>
+            <p>Se perdió el <%= @post.created_at.strftime("%d/%b/%Y") %></p>
+            <div class="container justify-content-between">
+              <div class="row">
+                <div class="col pl-0">
+                  <p>Contactar a <%= @post.user.name %></p>
+                </div>
+                <div class="col">
+                  <% if @post.user.avatar.attached? %>
+                    <%= cl_image_tag @post.user.avatar.key, class: "avatar"%>
+                  <% else %>
+                    <%= image_tag "user.png", alt: "User", class: "avatar"%>
+                  <% end %>
+                </div>
+              </div>
             </div>
-            <div class="col-6 text-center">
-              <% if @post.user.avatar.attached? %>
-            <%= cl_image_tag @post.user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% else %>
-            <%= image_tag "user.png", alt: "User", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
-            </div>
+            <br>
           </div>
-          <br>
-          <h3 class="pb-3">Identifica a <strong><%= @post.pet.name %></strong> con las siguientes características: </h3>
+          <h3 class="py-3">Identifica a <strong><%= @post.pet.name %></strong> con las siguientes características: </h3>
           <div class="row">
             <div class="col-6">
              <div class="card-caracteristics">
@@ -78,7 +84,7 @@
                 <p>Tamaño:</p>
                 <p><%= @post.pet.size.capitalize %></p>
                 <p>Edad:</p>
-                <p><%= @post.pet.age %> años</p>
+                <p> <%= @post.pet.age %> año</p>
               </div>
             </div>
             <div class="col-6">
@@ -92,34 +98,34 @@
               </div>
             </div>
           </div>
-             <div class="row">
-        <% if @post.user.id != current_user.id %>
-           <div class="col-6 align-items-end px-0 d-flex justify-content-between text-center px-2 py-3">
-    <h5>Lo has visto?</h5>
-    </div>
-    <div class="col-6 px-0  d-flex justify-content-between text-center px-2 py-3">
-              <%= link_to "Contactar", post_chatrooms_path(@post.id), class:"btn btn-light-gradient", method: "post" %>
-                </div>
-        <% end %>
-
-    </div>
       </div>
       <div class="col-6">
         <p><i class="fas fa-map-marked-alt"></i> Dirección <%= @post.address%></p>
         <div data-controller="show-map">
           <div id="map" data-show-map-target="map"
-            style="width: 100%; height: 450px;"
+            style="width: 100%; height: 480px;"
             data-marker="<%= @marker.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
         </div>
       </div>
+    </div>
   </div>
+
+    <div class="container d-flex justify-content-center pt-3">
+        <div class="row">
+              <% if @post.user.id != current_user.id %>
+                <div class="col-6 align-items-end px-0 d-flex justify-content-between text-center px-2 py-3">
+                  <h5>¿Lo has visto?</h5>
+                </div>
+                <div class="col-6 px-0  d-flex justify-content-between text-center px-2 py-3">
+                  <%= link_to "Contactar", post_chatrooms_path(@post.id), class:"btn btn-light-gradient", method: "post" %>
+                </div>
+              <% end %>
+        </div>
+    </div>
 
  <!-- btn -->
-    <div class="container">
-
-  </div>
 </section>
 
 <%#= render "contact_form", post: @post %>

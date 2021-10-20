@@ -15,12 +15,6 @@
   <%= f.label :size, "Size" %>
   <%= f.select :size,
    options_for_select( Pet::SIZE
-     # [
-          # ['Todos',nil],
-          # ['Pequeño','pequeño'],
-          # ['Mediano','mediano'],
-          # ['Grande','grande'],
-        #]
         ),
         {},
         { class:"form-control" }
@@ -30,12 +24,6 @@
   <%= f.label :color, "Color" %>
   <%= f.select :color,
   options_for_select(Pet::COLOR
-         # [
-        #   ['Todos',nil],
-        #   ['Blanco','blanco'],
-        #   ['Negro','negro'],
-        #   ['Multi color','multi color'],
-        # ]
         ),
         {},
         { class:"form-control" }

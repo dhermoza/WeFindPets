@@ -1,11 +1,26 @@
 <div class="container">
+
+<div class="row">
+  <div class="col-4">
+    <ul>
+      <% @chatrooms.each do |msn| %>
+        <li><%= link_to "#{msn.name}", chatroom_path(msn.id) %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-8">
+    
 <% if @chatroom.user.id == current_user.id %>
   <h1><%= @chatroom.post.user.name %></h1>
 <% else %>
   <h1><%= @chatroom.user.name %></h1>
 <% end %>
+ <%= link_to 'Delete', post_chatroom_path(@chatroom.post.id),
+      method: :delete,
+      class: 'btn btn-danger ml-3 d-none'
+    %>
 <h1><%= @chat %></h1>
-<div id="messages" data-chatroom-id=<%= @chatroom.id %>">
+<div id="messages" data-chatroom-id=<%= @chatroom.id %>>
   <% @chatroom.messages.each do |message| %>
     <%= render "messages/message", message: message %>
   <% end %>
@@ -31,5 +46,10 @@
 <% end %>
   </div>
 </div>
+  </div>
+</div>
+
+
+
 
 </div>

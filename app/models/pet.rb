@@ -63,6 +63,7 @@ class Pet < ApplicationRecord
   def self.other_breeds
     [
       ['Todos',nil],
+      ['Mestizo','mestizo'],
     ]
   end
 

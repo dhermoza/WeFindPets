@@ -11,6 +11,7 @@ class PostsController < ApplicationController
         OR pets.size @@ :query \
         OR pets.gender @@ :query \
         OR pets.color @@ :query \
+        OR pets.animal @@ :query \
       "
       @posts = Post.joins(:pet).where(query, query: "%#{params[:query]}%").order("id ASC")
     elsif params[:breed].present?
@@ -25,6 +26,10 @@ class PostsController < ApplicationController
     elsif params[:gender].present?
       sql_query = "pets.gender ILIKE :query"
       @posts = Post.joins(:pet).where(sql_query, query: params[:gender])
+    elsif params[:animal].present?
+      sql_query = "pets.animal ILIKE :query"
+      puts "no lo borren por favor"
+      @posts = Post.joins(:pet).where(sql_query, query: params[:animal])
     else
       @posts = Post.all.order("id ASC")
     end
@@ -139,6 +144,8 @@ class PostsController < ApplicationController
       }
     end
   end
+
+
 
   private
 

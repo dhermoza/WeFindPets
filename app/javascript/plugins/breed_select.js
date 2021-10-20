@@ -1,5 +1,6 @@
 const initBreedSelect = () => {
   $("#pet_animal").change(function () {
+    $("#filterbtn").attr("disabled", true);
     $.ajax({
       url: $("#get_breeds_path").val(), // this will be routed
       type: "GET",
@@ -10,22 +11,19 @@ const initBreedSelect = () => {
       async: true,
       dataType: "json",
       error: function (XMLHttpRequest, errorTextStatus, error) {
+        $("#filterbtn").attr("disabled", false);
         alert("Failed: " + errorTextStatus + " ;" + error);
       },
       success: function (data) {
+        $("#filterbtn").attr("disabled", false);
         $("#pet_breed option").remove();
         data.forEach((element) => {
           $("#pet_breed").append(
-            `<option value="${element[1]}">${element[0]}</option>`
+            !!element[1]
+              ? `<option value="${element[1]}">${element[0]}</option>`
+              : `<option value="">${element[0]}</option>`
           );
         });
-        // here we iterate the json result
-        // for(var i in data)
-        // {
-        //   var id = data[i].id;
-        //   var title = data[i].title;
-        //   $("#subject_select").append(new Option(title, id));
-        // }
       },
     });
   });

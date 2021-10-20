@@ -1,9 +1,14 @@
 class ChatroomsController < ApplicationController
   def index
-    @chatroom = Chatroom.all.select{ |chat| chat.user.id == current_user.id }
+    @chatrooms = Chatroom.all.select{ |chat| chat.user.id == current_user.id || chat.post.user.id == current_user.id}
+    # @chatrooms_by_post = Chatroom.all.select{ |chat| chat.post.user.id == current_user.id }
+
+    # @chatrooms_total = @chatrooms +  @chatrooms_by_post
+    # byebug
   end
 
   def show 
+    @chatrooms = Chatroom.all.select{ |chat| chat.user.id == current_user.id || chat.post.user.id == current_user.id}
     @chatroom = Chatroom.find(params[:id])
     if @chatroom.user == current_user || @chatroom.post.user == current_user
       @message = Message.new
@@ -20,5 +25,12 @@ class ChatroomsController < ApplicationController
       @chatroom = Chatroom.create(name: "#{current_user.name} y #{@post.user.name}", user: current_user, post: @post)
     end
     redirect_to chatroom_path(@chatroom)
+  end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    @chatroom = Chatroom.find(params[:id])
+    @chatroom.destroy
+    redirect_to chatrooms_path @chatroom
   end
 end

@@ -48,8 +48,20 @@
   <div class=" container d-flex justify-content-center pt-3">
       <div class="col-6">
           <h2 class="pb-3"><%= @post.title.capitalize%></h2>
-          <p><%= @post.description.capitalize %></p>
+          
+          <div class="row">
+            <div class="col-6">
+              <p><%= @post.user.name %></p>
           <p>Fecha reportado: <%= @post.created_at.strftime("%d/%b/%Y") %></p>
+            </div>
+            <div class="col-6 text-center">
+              <% if current_user.avatar.attached? %>
+            <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "user.png", alt: "User", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+            </div>
+          </div>
           <br>
           <h3 class="pb-3">Identifica a <%= @post.pet.name %> con las siguientes características: </h3>
           <div class="row">

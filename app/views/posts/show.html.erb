@@ -9,10 +9,12 @@
 
   <!-- img -->
   <div class="row">
-    <div class="col">
+    <div class="col-12">
       <div class="d-flex justify-content-center flex-wrap pt-5">
+      <div class="card-photo">
         <% if @post.pet.photos.length == 1 %>
-          <%= cl_image_tag @post.pet.photos.first.key, height: 500, width: 500, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo0" %>
+          <%= cl_image_tag @post.pet.photos.first.key, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo0" %>
+      </div>
         <% elsif @post.pet.photos.length == 2 %>
           <div class="d-flex align-items-center px-2">
             <%= cl_image_tag @post.pet.photos.first.key, height: 400, width: 400, class: "p-3", crop: :thumb, 'data-toggle': :modal, 'data-target': "#photo0" %>
@@ -50,25 +52,33 @@
   <!-- descripcion -->
   <div class=" container d-flex justify-content-center pt-3">
       <div class="col-6">
+          <div class="card-description">
           <h2 class="pb-3"><%= @post.title.capitalize%></h2>
           <p><%= @post.description.capitalize %></p>
-          <p>Fecha reportado: <%= @post.created_at.strftime("%d/%b/%Y") %></p>
+          <p>Se perdió el <%= @post.created_at.strftime("%d/%b/%Y") %></p>
+          </div>
           <br>
-          <h3 class="pb-3">Identifica a <%= @post.pet.name %> con las siguientes características: </h3>
+          <h3 class="pb-3">Identifica a <strong><%= @post.pet.name %></strong> con las siguientes características: </h3>
           <div class="row">
-            <div class="col-4">
-              <p>Nombre:</p>
-              <p>Sexo:</p>
-              <p>Tamaño:</p>
-              <p>Tipo de animal:</p>
-              <p>Raza:</p>
+            <div class="col-6">
+             <div class="card-caracteristics">
+                <p>Raza:</p>
+                <p><%= @post.pet.breed.capitalize %></p>
+                <p>Tamaño:</p>
+                <p><%= @post.pet.size.capitalize %></p>
+                <p>Edad:</p>
+                <p><%= @post.pet.age %> años</p>
+              </div>
             </div>
-            <div class="col-8">
-              <p><%= @post.pet.name.capitalize %></p>
-              <p><%= @post.pet.gender.capitalize %></p>
-              <p><%= @post.pet.size.capitalize %></p>
-              <p><%= @post.pet.animal.capitalize %></p>
-              <p><%= @post.pet.breed.capitalize %></p>
+            <div class="col-6">
+              <div class="card-caracteristics-left">
+                <p>Sexo:</p>
+                <p><%= @post.pet.gender.capitalize %></p>
+                <p>Color:</p>
+                <p><%= @post.pet.color.capitalize %></p>
+                <p>Tipo de animal:</p>
+                <p><%= @post.pet.animal.capitalize %></p>
+              </div>
             </div>
           </div>
       </div>
@@ -76,7 +86,7 @@
         <p><i class="fas fa-map-marked-alt"></i> Dirección <%= @post.address%></p>
         <div data-controller="show-map">
           <div id="map" data-show-map-target="map"
-            style="width: 100%; height: 400px;"
+            style="width: 100%; height: 450px;"
             data-marker="<%= @marker.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>

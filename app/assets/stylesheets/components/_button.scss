@@ -38,8 +38,9 @@
   color: $colortext;
   padding: 9px 66px;
   border-radius: 30px;
-  font-weight: bold;
+  font-weight: bold !important;
   background: $ourlightgreen;
+  font-family: Copernicus;
   a {
     color: $colortext;
   }

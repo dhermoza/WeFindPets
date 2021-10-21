@@ -7,10 +7,11 @@
   </div>
   <div class="row">
     <div class="col">
-      <%= f.input :gender, collection: Pet::GENDER.reject { |s| s[0]== "Todos" }, include_blank: false, :prompt => 'Sexo', label: false %>
+        <%= f.input :animal, collection: Pet::ANIMAL.reject { |s| s[0]== "Todos" }, include_blank: false, :prompt => 'animal',  label: false %>
+        <!--<%= f.input :animal, placeholder: "Tipo de Animal", label: false %>-->
     </div>
     <div class="col">
-      <%= f.input :age, placeholder: "Edad", label: false, collection: 0..18, include_blank: false, :prompt => 'Edad',  label: false %>
+      <%= f.input :gender, collection: Pet::GENDER.reject { |s| s[0]== "Todos" }, include_blank: false, :prompt => 'Sexo', label: false %>
     </div>
   </div>
   <div class="row">
@@ -26,9 +27,12 @@
         <%= f.input :breed, collection: Pet.breeds.reject { |s| s[0]== "Todos" }, include_blank: false, :prompt => 'Raza',  label: false %>
     </div>
     <div class="col">
-        <%= f.input :animal, collection: Pet::ANIMAL.reject { |s| s[0]== "Todos" }, include_blank: false, :prompt => 'animal',  label: false %>
-        <!--<%= f.input :animal, placeholder: "Tipo de Animal", label: false %>-->
+      <%= f.input :age, placeholder: "Edad", label: false, collection: 0..18, include_blank: false, :prompt => 'Edad',  label: false %>
     </div>
+    <!--<div class="col">
+        <%= f.input :animal, collection: Pet::ANIMAL.reject { |s| s[0]== "Todos" }, include_blank: false, :prompt => 'animal',  label: false %>
+        <%= f.input :animal, placeholder: "Tipo de Animal", label: false %>
+    </div>-->
   </div>
   <div class="row">
     <div class="col">

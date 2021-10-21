@@ -154,3 +154,46 @@
   width: 700px;
   height: 500px;
 }
+
+.card-description {
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  background-color: $pinkforcard;
+  padding: 20px;
+  h2 {
+    font-size: 20px;
+    color: black;
+  }
+}
+
+.card-caracteristics {
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  background-color: $lightblue;
+  padding: 20px;
+  width: auto;
+  p {
+    font-size: 18px;
+    color: black;
+  }
+}
+
+.card-caracteristics-left {
+  border-radius: 5px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  background-color: $ligthyellow;
+  padding: 20px;
+  width: auto;
+  p {
+    font-size: 18px;
+    color: black;
+  }
+}
+
+.card-photo {
+  img {
+    object-fit: contain;
+    width: auto;
+    height: 600px;
+  }
+}

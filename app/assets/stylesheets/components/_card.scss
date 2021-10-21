@@ -11,6 +11,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
   @include media-breakpoint-down(sm) {
     grid-template-columns: 1fr;
   }
@@ -23,6 +26,11 @@
   @include media-breakpoint-up(xl) {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+.map-container {
+  height: 100vh;
+  position: sticky;
+  top: 0;
 }
 .col-pets {
   display: grid;

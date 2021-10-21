@@ -163,17 +163,24 @@
   background-size: cover;
   background-position: center;
   width: 700px;
-  padding-right: 50px;
+  padding-right: 40px;
+  padding-left: 20px;
 }
-
+@media (max-width: 900px) {
+  .testimonial-card {
+    width: 640px;
+    margin-bottom: 30px;
+    margin-left: 35px;
+    padding-left: 10px;
+  }
+}
 .card-description {
   border-radius: 5px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
   background-color: $pinkforcard;
-  padding: 20px;
   h2 {
     font-size: 20px;
-    color: black;
+    color: white;
   }
 }
 
@@ -204,7 +211,64 @@
 .card-photo {
   img {
     object-fit: contain;
-    width: auto;
-    height: 600px;
+    width: 100%;
   }
+}
+
+.post-show-container {
+  margin-top:10px;
+}
+
+
+.map-section {
+  position:relative;
+}
+
+.address {
+  position: absolute;
+  background: black;
+}
+
+.post-title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.card-post-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $ourblue;
+  border-radius: 5px 5px 0 0;
+  padding: 10px 0;
+}
+
+.card-post-description {
+  padding: 0 25px;
+  margin-top: 25px;
+}
+
+.map-post-container {
+  margin-left: -50px;
+}
+
+#map {
+  width: 350px;
+  height: 480px;
+}
+.post-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 5px 5px;
+  grid-template-areas:
+    ". ."
+    ". ."
+    ". ."
+}
+.detail {
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  padding-left: 10px;
 }

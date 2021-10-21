@@ -29,13 +29,14 @@ import { initAutocomplete } from "../plugins/init_autocomplete";
 import { initChatroomCable } from "../channels/chatroom_channel";
 import { initZoom } from "../plugins/zoom";
 import { initBreedSelect } from "../plugins/breed_select";
-
+import { initNavbarScroll } from "../plugins/navbar_scroll";
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
   initAutocomplete();
   initChatroomCable();
   initZoom();
   initBreedSelect();
+  initNavbarScroll();
 });
 
 import "controllers";

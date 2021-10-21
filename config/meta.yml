@@ -1,5 +1,5 @@
 meta_product_name: "We Find Pets"
 meta_title: "We Find Pets - Encuentra a tu mascota"
 meta_description: "¿Perdiste a tu mascota? Te ayudamos a encontrarla"
-meta_image: "Animal shelter-bro.png" # should exist in `app/assets/images/`
+meta_image: "og_image.jpg" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards

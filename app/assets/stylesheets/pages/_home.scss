@@ -64,3 +64,29 @@ body {
 .decoration {
   text-decoration: none !important;
 }
+
+@media (max-width: 900px) {
+  .text-subtitle {
+    font-size: 20px;
+  }
+  .img-size {
+    max-width: 100%;
+  }
+  .steps-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .text-title {
+    font-size: 30px;
+  }
+  .title-testimonial {
+    font-size: 30px;
+  }
+  .testimonial-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .testimonial {
+    font-size: 20px;
+  }
+}

@@ -20,7 +20,7 @@
 
 .btn-light-gradient:hover {
   background: $otherpink;
-  color: $ourblue;
+  color: $colortext;
 }
 
 .btn-gradient:hover {
@@ -32,4 +32,29 @@
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
+}
+
+.btn-gradient-banner {
+  color: $colortext;
+  padding: 9px 66px;
+  border-radius: 30px;
+  font-weight: bold;
+  background: $ourlightgreen;
+  a {
+    color: $colortext;
+  }
+}
+.btn-gradient-banner:hover {
+  background: $ourgreen;
+  color: $colortext;
+}
+.btn-banner {
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .btn-gradient-banner {
+    padding: 9px 50px;
+    text-align: center;
+  }
 }

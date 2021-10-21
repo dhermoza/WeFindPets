@@ -4,6 +4,7 @@
   position: sticky;
   top: 0px;
   z-index: 50;
+  background-color: #fef8f1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,15 +16,28 @@
 }
 
 .nav-link {
-  color: $colortext;
   font-family: Copernicus, serif;
   font-size: 20px;
+  color: $colortext !important;
 }
 .logo {
   padding-left: 20px;
 }
 .nav-item {
-  width: 200px;
+  width: 100px;
   font-size: 20px;
   text-align: center;
+  font-family: Copernicus, serif;
+  color: $colortext !important;
+}
+
+header.nav-fixed {
+  width: 100%;
+  position: fixed;
+  transition: 0.3s ease-in-out;
+}
+
+.nav-active {
+  background-color: #fff;
+  box-shadow: 5px -1px 12px -5px grey;
 }

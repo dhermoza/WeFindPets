@@ -40,3 +40,31 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-family: Copernicus;
 }
+
+/*CSS media query within a style sheet */
+@media (max-width: 900px) {
+  .banner-title h1 {
+    font-size: 50px;
+  }
+  .banner-title p {
+    font-size: 30px;
+  }
+  .img-banner-2,
+  .img-banner-1 {
+    display: none;
+  }
+}
+@media screen and (max-width: 1000px) and (min-width: 600px) {
+  .img-banner-2,
+  .img-banner-1 {
+    width: 20%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 1300px) and (min-width: 1000px) {
+  .img-banner-2,
+  .img-banner-1 {
+    width: 20%;
+    height: auto;
+  }
+}

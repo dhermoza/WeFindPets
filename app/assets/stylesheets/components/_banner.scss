@@ -1,12 +1,13 @@
 .banner {
-  padding: 200px 0;
-  background-image: asset-url("walking.png");
+  /*padding: 200px 0;*/
+
   height: auto;
   width: 100%;
   background-color: $otherpink;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: calc(100% - 200px) center;
+  /*background-size: contain, 300px;*/
+  /*background-repeat: no-repeat, no-repeat;*/
+  /*background-position: calc(100% - 200px) center, left 150px center;*/
+  /*background-position: calc(100% - 200px) center;*/
 }
 
 .banner h1 {

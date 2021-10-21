@@ -166,7 +166,14 @@
   padding-right: 40px;
   padding-left: 20px;
 }
-
+@media (max-width: 900px) {
+  .testimonial-card {
+    width: 640px;
+    margin-bottom: 30px;
+    margin-left: 35px;
+    padding-left: 10px;
+  }
+}
 .card-description {
   border-radius: 5px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);

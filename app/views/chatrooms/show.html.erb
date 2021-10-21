@@ -1,55 +1,87 @@
-<div class="container">
+<div class="container-fluid">
+<% if @chatrooms.size !=0 %>
+  <div class="row">
+    <div class="col-4  pl-4 bg-chats border-left">
+      <div class="container">
 
-<div class="row">
-  <div class="col-4">
-    <ul>
-      <% @chatrooms.each do |msn| %>
-        <li><%= link_to "#{msn.name}", chatroom_path(msn.id) %></li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="col-8">
-    
-<% if @chatroom.user.id == current_user.id %>
-  <h1><%= @chatroom.post.user.name %></h1>
-<% else %>
-  <h1><%= @chatroom.user.name %></h1>
-<% end %>
- <%= link_to 'Delete', post_chatroom_path(@chatroom.post.id),
-      method: :delete,
-      class: 'btn btn-danger ml-3 d-none'
-    %>
-<h1><%= @chat %></h1>
-<div id="messages" data-chatroom-id=<%= @chatroom.id %>>
-  <% @chatroom.messages.each do |message| %>
-    <%= render "messages/message", message: message %>
-  <% end %>
-</div>
-<div class="row">
-  <div class="col-1">
-    <% if current_user.avatar.attached? %>
-            <%= cl_image_tag current_user.avatar.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% else %>
-            <%= image_tag "user.png", alt: "User", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
-  </div>
-  <div class="col-11">
-    <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
-    <div class="row">
-    <div class="col-9">
-  <%= f.input :description, label: false, placeholder: "Escribe tu mensaje..." %>
-  </div>
-  <div class="col-3">
-          <%= f.button :submit, class: "btn btn-primary" %>
+        <h3 class="pt-4">Mis conversaciones</h3>
+        <% @chatrooms.each do |msn| %>
+        <%= link_to chatroom_path(msn.id), class: "t-link" do %>
+          <div class="row mb-4 mt-4">
+            <div class="col-2">
+              <% if @chatroom.post.user.id==current_user.id %>
+                      <%= render "shared/avatar" , user: { avatar: msn.user.avatar } %>
+                    <% else %>
+                     <%= render "shared/avatar" , user: { avatar: msn.post.user.avatar } %>
+                    <% end %>
+            </div>
+            <div class="col">
+            <p><%= msn.name %></p>
+              
+            </div>
           </div>
+          <% end %>
+          <% end %>
+      </div>
+    </div>
 
+    <div class="col-8">
+<nav class="bg-gray" aria-label="breadcrumb">
+  <ol class="breadcrumb mb-0">
+    <li class="breadcrumb-item"> <%= link_to "Ver post", post_path(@chatroom.post.id) %></li>
+    <li class="breadcrumb-item active" aria-current="page">Chat</li>
+
+  </ol> 
+  <% if @chatroom.user.id==current_user.id %>
+        <h4 class="pt-2 pl-3 pb-4">
+          <%= @chatroom.post.user.name.capitalize! %>
+        </h4>
+        <% else %>
+          <h4 class="pt-2 pl-3 pb-4">
+            <%= @chatroom.user.name.capitalize! %>
+          </h4>
+          <% end %>
+</nav>
+     
+            <%= link_to 'Delete' , post_chatroom_path(@chatroom.post.id), method: :delete,
+              class: 'btn btn-danger ml-3 d-none' %>
+              <h1>
+                <%= @chat %>
+              </h1>
+              <div id="messages" data-chatroom-id=<%=@chatroom.id %>>
+                <% @chatroom.messages.each do |message| %>
+                  <%= render "messages/message" , message: message %>
+                    <% end %>
+              </div>
+              <div class="row">
+                <div class="col-1">
+                              <%= render "shared/avatar" , user: { avatar: current_user.avatar } %>
+
+                </div>
+                <div class="col-11">
+                  <%= simple_form_for [ @chatroom, @message ], remote: true do |f| %>
+                    <div class="row">
+                      <div class="col-9">
+                        <%= f.input :description, label: false, placeholder: "Escribe tu mensaje..." %>
+                      </div>
+                      <div class="col-3">
+                        <%= f.button :submit, value: "Enviar", class: "btn btn-primary" %>
+                      </div>
+
+                      <% end %>
+                    </div>
+                </div>
+              </div>
+    </div>
+
+
+<% else %>
+ <%= render "jumbotron", info: {
+        title: "Aun no tienes mensajes",
+        btn: "Ver publicaciones",
+        btn_path: post_path,
+      } %>
 <% end %>
+
+
   </div>
-</div>
-  </div>
-</div>
-
-
-
-
-</div>

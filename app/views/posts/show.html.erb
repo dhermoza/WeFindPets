@@ -8,8 +8,8 @@
   <!-- titulo -->
 
   <!-- img -->
-  <div class="row">
-    <div class="col-12">
+  <div class="row d-flex justify-content-center pt-3">
+    <div class="col-8 post-show-container">
       <div class="d-flex justify-content-center flex-wrap pt-5">
         <div class="card-photo">
           <% if @post.pet.photos.length == 1 %>
@@ -41,58 +41,68 @@
     </div>
   </div>
   <!-- descripcion -->
-  <div class=" container d-flex justify-content-center pt-3">
-    <div class="row">
-      <div class="col-6">
+  <div class=" container pt-3 col-8">
+    <div class="row d-flex justify-content-between">
+      <div class="">
         <div class="card-description">
-          <h2 class="pb-3"><%= @post.title.capitalize%></h2>
-            <p><%= @post.description.capitalize %></p>
-            <p>Se perdió el <%= @post.created_at.strftime("%d/%b/%Y") %></p>
-            <div class="container justify-content-between">
-              <div class="row">
-                <div class="col pl-0">
-                  <p>Contactar a <%= @post.user.name %></p>
-                </div>
-                <div class="col">
-                  <% if @post.user.avatar.attached? %>
-                    <%= cl_image_tag @post.user.avatar.key, class: "avatar"%>
-                  <% else %>
-                    <%= image_tag "user.png", alt: "User", class: "avatar"%>
-                  <% end %>
-                </div>
-              </div>
+            <div class="card-post-header">
+              <h2 class="post-title"><%= @post.title.capitalize%></h2>
             </div>
-            <br>
+            <div class="card-post-description">
+              <p><%= @post.description.capitalize %></p>
+              <p>Se perdió el <%= @post.created_at.strftime("%d/%b/%Y") %></p>
+                <div class="">
+                  <div>
+                    <div>
+                      <p>Publicado por <%= @post.user.name %></p>
+                    </div>
+                    <div>
+                      <% if @post.user.avatar.attached? %>
+                        <%= cl_image_tag @post.user.avatar.key, class: "avatar"%>
+                      <% else %>
+                        <%= image_tag "user.png", alt: "User", class: "avatar"%>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+              <br>
+            </div>
           </div>
           <h3 class="py-3">Identifica a <strong><%= @post.pet.name %></strong> con las siguientes características: </h3>
-          <div class="row">
-            <div class="col-6">
-             <div class="card-caracteristics">
-                <p>Raza:</p>
+          <div class="container d-flex justify-content-center">
+          <div class="post-grid">
+            <div class="detail">
+                <p><strong>Raza:</strong></p>
                 <p><%= @post.pet.breed.capitalize %></p>
-                <p>Tamaño:</p>
-                <p><%= @post.pet.size.capitalize %></p>
-                <p>Edad:</p>
-                <p> <%= @post.pet.age %> año</p>
-              </div>
             </div>
-            <div class="col-6">
-              <div class="card-caracteristics-left">
-                <p>Sexo:</p>
+            <div class="detail">
+                <p><strong>Tamaño:</strong></p>
+                <p><%= @post.pet.size.capitalize %></p>
+            </div>
+            <div class="detail">
+                <p><strong>Edad:</strong></p>
+                <p> <%= @post.pet.age %> año</p>
+            </div>
+            <div class="detail">
+                <p><strong>Sexo:</strong></p>
                 <p><%= @post.pet.gender.capitalize %></p>
-                <p>Color:</p>
+            </div>
+            <div class="detail">
+                <p><strong>Color:</strong></p>
                 <p><%= @post.pet.color.capitalize %></p>
-                <p>Tipo de animal:</p>
+            </div>
+            <div class="detail">
+                <p><strong>Tipo:</strong></p>
                 <p><%= @post.pet.animal.capitalize %></p>
-              </div>
             </div>
           </div>
+
+          </div>
       </div>
-      <div class="col-6">
-        <p><i class="fas fa-map-marked-alt"></i> Dirección <%= @post.address%></p>
+      <div class="map-post-container">
         <div data-controller="show-map">
+          <p><i class="fas fa-map-marked-alt"></i> Dirección <%= @post.address%></p>
           <div id="map" data-show-map-target="map"
-            style="width: 100%; height: 480px;"
             data-marker="<%= @marker.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>

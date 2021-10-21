@@ -1,20 +1,20 @@
 <div class="banner">
-  <div class="container text-left banner-title d-flex justify-content-center">
+  <div class="container text-left banner-title d-flex justify-content-center align-items-center"">
     <%= image_tag "snap.png", width: 600, class: "img-banner-1",alt: "number"%>
     <div class="banner-title text-center pt-5">
       <h1>We Find Pets</h1>
       <p>¿Perdiste a tu mascota?</p>
       <p>Te ayudamos a encontrarla.</p>
-      <div class="container pt-3 d-flex justify-content-center ">
-        <%= link_to "Publicar", new_pet_path, class: "btn btn-gradient" %>
-        <%= link_to "Buscar", posts_path, class: "btn btn-gradient mx-5" %>
+      <div class="container pt-3 d-flex justify-content-center btn-banner">
+        <%= link_to "Publicar", new_pet_path, class: "btn btn-gradient-banner mr-5" %>
+        <%= link_to "Buscar", posts_path, class: "btn btn-gradient-banner " %>
       </div>
     </div>
     <%= image_tag "walking.png", width: 600, class: "img-banner-2", alt: "number"%>
   </div>
 </div>
-
-<section class="py-5" data-aos = "zoom-in">
+<!--Pasos a seguir-->
+<section class="py-5">
   <div class="container text-center img-size" >
       <div class="row">
         <div class="col">
@@ -22,22 +22,22 @@
           <br>
         </div>
       </div>
-      <div class="row" >
-        <div class="col-4">
+      <div class="row steps-wrapper">
+        <div class="col" data-aos = "zoom-in">
           <%= image_tag "number-1-64px.png", width: 30, alt: "number"%>
           <br>
           <%= image_tag "forn-pet.png", width: 300, alt: "forn-pet"%>
           <h2 class="py-5 text-subtitle">Llena los datos de la mascota</h2>
           <p class="text-follow">Crea una cuenta y llena los datos con las características de la mascota</p>
         </div>
-        <div class="col-4">
+        <div class="col" data-aos = "zoom-in">
           <%= image_tag "number-2-64px.png", width: 30, alt: "number"%>
           <br>
           <%= image_tag "share-pets.png", width: 300, alt: "share-pets"%>
           <h2 class="py-5 text-subtitle"> Crea la publicación</h2>
           <p class="text-follow">Completa los datos del aviso con información de lugar y fecha del reporte</p>
         </div>
-        <div class="col-4">
+        <div class="col" data-aos = "zoom-in">
           <%= image_tag "number-3-64px.png", width: 30, alt: "number"%>
           <br>
           <%= image_tag "pet-reunion.png", width: 300, alt: "pet-reunion"%>
@@ -48,13 +48,13 @@
     </div>
 </section>
 
-
+<!--lista de mascotas perdidas y encontradas-->
 <section>
   <div class="busqueda">
-    <div class="row container m-auto" data-aos = "flip-left">
+    <div class="row container m-auto">
       <div class="col">
         <h2 class="mt-5 mb-5 mr-5">Mascotas Encontradas</h2>
-          <div class="cards">
+          <div class="cards" data-aos = "flip-left">
             <% @last_founds.each do |pet| %>
               <%= link_to post_path(pet.posts.first), class:"decoration" do  %>
                 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= pet.photos.empty? ? "https://source.unsplash.com/800x600/?dog&lost" :  cl_image_path(pet.photos.first.key) %>')">
@@ -78,10 +78,11 @@
   </div>
 </section>
 <br>
+<!--testimonios-->
 <section>
   <h1 class="title-testimonial text-title">Testimonios</h1>
-  <div class="d-flex justify-content-center ">
-    <div class="py-5 mr-5  testimonial-card">
+  <div class="d-flex justify-content-center testimonial-wrapper ">
+    <div class="py-5 mr-5  testimonial-card" data-aos="fade-right">
       <div class="row align-items-center" style="height : 100%">
         <div class="col-6 d-flex justify-content-center ">
           <%= image_tag "adam-griffith-sWkkIiTJMYc-unsplash.jpg", height: 200, width: 200,class:"img-testimonial" , alt: "Reunited"%>
@@ -97,18 +98,18 @@
         </div>
       </div>
     </div>
-    <div class="py-5 mr-5 testimonial-card">
+    <div class="py-5 mr-5 testimonial-card" data-aos="fade-left">
       <div class="row align-items-center" style="height : 100%">
         <div class="col-6 d-flex justify-content-center ">
           <%= image_tag "adam-griffith-sWkkIiTJMYc-unsplash.jpg", height: 200, width: 200,class:"img-testimonial",  alt: "Reunited"%>
         </div>
         <div class="col-6">
           <div class="align-self-baseline testimonial">
-            <p>"Una foto ayudo a Loki a llegar a casa"</p>
+            <p>"Una foto ayudó a Loki a llegar a casa"</p>
           </div>
           <div class="tex-testimonial">
             <p>Después de estar perdido tres meses, We find pets reunió a un perro desaparecido con su familia.</p>
-            <p>-Carolina U-</p>
+            <p>-Emmanuel T-</p>
           </div>
         </div>
         </div>

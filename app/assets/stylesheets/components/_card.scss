@@ -163,7 +163,8 @@
   background-size: cover;
   background-position: center;
   width: 700px;
-  padding-right: 50px;
+  padding-right: 40px;
+  padding-left: 20px;
 }
 
 .card-description {
@@ -263,4 +264,7 @@
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   padding-left: 10px
+  p {
+    color: black;
+  }
 }

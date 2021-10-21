@@ -5,6 +5,7 @@ h2 {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   font-size: 24px;
   font-weight: lighter;
+  font-family: Copernicus, serif;
 }
 
 h1 {
@@ -13,6 +14,7 @@ h1 {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   font-size: 40px;
   font-weight: lighter;
+  font-family: Copernicus, serif;
 }
 
 .testimonial {
@@ -21,20 +23,44 @@ h1 {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
   font-size: 24px;
   font-weight: lighter;
+  font-family: Copernicus, serif;
+  text-align: center;
 }
 body {
   background-color: white;
+  font-family: Copernicus;
 }
 
 .busqueda {
   background-color: $otherpink;
+  width: 100%;
+  padding-bottom: 50px;
 }
 .text-subtitle {
   font-size: 23px;
+  font-family: Copernicus, serif;
 }
 
 .text-title,
 .text-follow,
 .text-subtitle {
   font-family: Copernicus;
+  color: $colortext;
+}
+.img-size {
+  max-width: 1300px;
+}
+.img-testimonial {
+  border-radius: 100px;
+}
+.tex-testimonial {
+  text-align: center;
+}
+.title-testimonial {
+  text-align: center;
+  font-size: 40px;
+  padding: 20px;
+}
+.decoration {
+  text-decoration: none !important;
 }

@@ -2,8 +2,9 @@
   background: $pink;
   height: auto;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  color: rgba(0, 0, 0, 0.3);
   align-items: center;
+  font-family: Copernicus, serif;
 }
 .footer-links {
   display: flex;
@@ -13,12 +14,13 @@
   color: black;
   opacity: 0.15;
   text-decoration: none;
-  font-size: 24px;
+  font-size: 20px;
   padding: 0px 10px;
+  font-family: Copernicus, serif;
 }
 .footer-links a:hover {
   opacity: 1;
 }
 .footer .fa-heart {
-  color: #D23333;
+  color: #d23333;
 }

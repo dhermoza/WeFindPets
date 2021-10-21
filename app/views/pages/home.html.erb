@@ -1,23 +1,28 @@
 <div class="banner">
-  <div class="container text-left">
-    <h1>We Find Pets</h1>
-    <p>¿Perdiste a tu mascota? Te ayudamos a encontrarla</p>
-    <div class="container pt-3">
-      <%= link_to "Publicar", new_pet_path, class: "btn btn-gradient" %>
-      <%= link_to "Buscar", posts_path, class: "btn btn-gradient mx-5" %>
+  <div class="container text-left banner-title d-flex justify-content-center">
+    <%= image_tag "snap.png", width: 600, class: "img-banner-1",alt: "number"%>
+    <div class="banner-title text-center pt-5">
+      <h1>We Find Pets</h1>
+      <p>¿Perdiste a tu mascota?</p>
+      <p>Te ayudamos a encontrarla.</p>
+      <div class="container pt-3 d-flex justify-content-center ">
+        <%= link_to "Publicar", new_pet_path, class: "btn btn-gradient" %>
+        <%= link_to "Buscar", posts_path, class: "btn btn-gradient mx-5" %>
+      </div>
     </div>
+    <%= image_tag "walking.png", width: 600, class: "img-banner-2", alt: "number"%>
   </div>
 </div>
 
-<section class="py-5">
-  <div class="container text-center">
+<section class="py-5" data-aos = "zoom-in">
+  <div class="container text-center img-size" >
       <div class="row">
         <div class="col">
           <h1 class="py-5 text-title">Empieza a usar We Find Pets fácilmente</h1>
           <br>
         </div>
       </div>
-      <div class="row">
+      <div class="row" >
         <div class="col-4">
           <%= image_tag "number-1-64px.png", width: 30, alt: "number"%>
           <br>
@@ -45,44 +50,71 @@
 
 
 <section>
-  <div class="container busqueda">
-    <div class="row">
+  <div class="busqueda">
+    <div class="row container m-auto" data-aos = "flip-left">
       <div class="col">
-            <h2 class="mt-5 mb-5 mr-5">Mascotas Encontradas</h2>
-              <div class="cards">
-                <% @last_founds.each do |pet| %>
+        <h2 class="mt-5 mb-5 mr-5">Mascotas Encontradas</h2>
+          <div class="cards">
+            <% @last_founds.each do |pet| %>
+              <%= link_to post_path(pet.posts.first), class:"decoration" do  %>
                 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= pet.photos.empty? ? "https://source.unsplash.com/800x600/?dog&lost" :  cl_image_path(pet.photos.first.key) %>')">
                   <%= pet.name%>
                 </div>
-                <% end %>
-              </div>
-            <h2 class="mt-5 mb-5 mr-5">Mascotas Perdidas</h2>
-              <div class="cards">
-                <% @last_losts.each do |pet| %>
+              <% end %>
+            <% end %>
+            </div>
+        <h2 class="mt-5 mb-5 mr-5">Mascotas Perdidas</h2>
+          <div class="cards" data-aos = "flip-left">
+            <% @last_losts.each do |pet| %>
+              <%= link_to post_path(pet.posts.first), class:"decoration" do %>
                 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= pet.photos.empty? ? "https://source.unsplash.com/800x600/?dog&lost" :  cl_image_path(pet.photos.first.key) %>')">
                   <%= pet.name %>
                 </div>
-                <% end %>
-              </div>
+              <% end %>
+            <% end %>
+          </div>
       </div>
     </div>
   </div>
 </section>
 <br>
-<br>
 <section>
-<div class="py-5 container justify-content-center">
-  <div class="row align-items-center">
-    <div class="col-9">
-      <div class="testimonial-card">
-        <%= image_tag "adam-griffith-sWkkIiTJMYc-unsplash.jpg", height: 500, width: 700,  alt: "Reunited"%>
+  <h1 class="title-testimonial text-title">Testimonios</h1>
+  <div class="d-flex justify-content-center ">
+    <div class="py-5 mr-5  testimonial-card">
+      <div class="row align-items-center" style="height : 100%">
+        <div class="col-6 d-flex justify-content-center ">
+          <%= image_tag "adam-griffith-sWkkIiTJMYc-unsplash.jpg", height: 200, width: 200,class:"img-testimonial" , alt: "Reunited"%>
+        </div>
+        <div class="col-6">
+          <div class="align-self-baseline testimonial">
+            <p>"Gracias a WeFindPets pude encontrar rápidamente a mi mascota"</p>
+          </div>
+          <div class="tex-testimonial">
+            <p>Gracias a We Find Pets pude encontrar a mi mascota de forma rápida</p>
+            <p>-Carolina U-</p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-3">
-      <div class="align-self-baseline text-center testimonial">
-        <p>"Gracias a We Find Pets pude encontrar a mi mascota de forma rápida"</p>
+    <div class="py-5 mr-5 testimonial-card">
+      <div class="row align-items-center" style="height : 100%">
+        <div class="col-6 d-flex justify-content-center ">
+          <%= image_tag "adam-griffith-sWkkIiTJMYc-unsplash.jpg", height: 200, width: 200,class:"img-testimonial",  alt: "Reunited"%>
+        </div>
+        <div class="col-6">
+          <div class="align-self-baseline testimonial">
+            <p>"Una foto ayudo a Loki a llegar a casa"</p>
+          </div>
+          <div class="tex-testimonial">
+            <p>Después de estar perdido tres meses, We find pets reunió a un perro desaparecido con su familia.</p>
+            <p>-Carolina U-</p>
+          </div>
+        </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  <br>
+  <br>
 </section>

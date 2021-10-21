@@ -5,7 +5,9 @@
   color: rgba(0, 0, 0, 0.3);
   align-items: center;
   font-family: Copernicus, serif;
+  font-size: 20px;
 }
+
 .footer-links {
   display: flex;
   align-items: center;
@@ -14,7 +16,6 @@
   color: black;
   opacity: 0.15;
   text-decoration: none;
-  font-size: 20px;
   padding: 0px 10px;
   font-family: Copernicus, serif;
 }
@@ -23,4 +24,21 @@
 }
 .footer .fa-heart {
   color: #d23333;
+}
+.footer-links {
+  font-size: 25px;
+  padding-top: 20px;
+}
+
+@media (max-width: 900px) {
+  .footer {
+    font-size: 16px;
+  }
+  .nav-link {
+    font-size: 16px;
+  }
+  .footer-links {
+    font-size: 25px;
+    padding-top: 20px;
+  }
 }

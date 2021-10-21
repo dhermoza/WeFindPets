@@ -1,0 +1,73 @@
+.message-container{
+  margin: 0.8rem;
+}
+
+.talk-bubble {
+	// margin: 40px;
+  display: inline-block;
+  position: relative;
+	width: 200px;
+	height: auto;
+  border-radius: 10px;}
+
+.bg-right{
+  background: linear-gradient(to right, #02b72130 10%, #b8810938 100%);
+  }
+
+.bg-left{
+  // color: white;
+  background: linear-gradient(to right, #4fbeff38 10%, #b809a23d 100%);  font-weight: 500;
+}
+.tri-right.left-top:after{
+	content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -10px;
+    right: auto;
+    top: 0px;
+    bottom: auto;
+    border: 10px solid;
+    border-color: #acc7e8 transparent transparent transparent;
+}
+
+.tri-right.right-top:after{
+	content: ' ';
+	position: absolute;
+    width: 0;
+    height: 0;
+    right:-10px;
+    left: auto;
+    top: 0px;
+    bottom: auto;
+    border: 10px solid;
+    border-color: #dde995e6 transparent transparent transparent;
+}
+
+.talktext{
+  padding: 1em;
+	text-align: left;
+  line-height: 1.5em;
+  overflow-wrap: break-word;
+}
+
+
+#messages{
+  height: calc(100vh - 200px);
+  overflow-x: hidden;
+}
+
+.bg-chats{
+  background-color: $otherpink;
+}
+
+.bg-gray{
+  background-color: #e9ecef;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.t-link{
+  color: black;
+    text-decoration: none;
+}

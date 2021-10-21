@@ -1,10 +1,13 @@
 class ChatroomsController < ApplicationController
   def index
     @chatrooms = Chatroom.all.select{ |chat| chat.user.id == current_user.id || chat.post.user.id == current_user.id}
-    # @chatrooms_by_post = Chatroom.all.select{ |chat| chat.post.user.id == current_user.id }
-
-    # @chatrooms_total = @chatrooms +  @chatrooms_by_post
-    # byebug
+    @chatroom = Chatroom.find(@chatrooms.first.id)
+    if @chatroom.user == current_user || @chatroom.post.user == current_user
+      @message = Message.new
+    else
+      redirect_to post_path(@chatroom.post), notice: "No existe"
+    end
+   
   end
 
   def show 

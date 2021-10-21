@@ -1,12 +1,12 @@
 .banner {
   padding: 200px 0;
-  background-image: asset-url("undraw_Dog_walking_re_l61p.svg");
+  background-image: asset-url("walking.png");
   height: auto;
   width: 100%;
   background-color: $otherpink;
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: calc(100% - 200px) center;
 }
 
 .banner h1 {

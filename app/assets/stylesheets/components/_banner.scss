@@ -1,16 +1,26 @@
 .banner {
-  /*padding: 200px 0;*/
-
+  padding: 100px 0;
+  /*background-image: asset-url("m_merged.png");*/
   height: auto;
-  width: 100%;
   background-color: $otherpink;
-  /*background-size: contain, 300px;*/
+  /*background-size: contain;
   /*background-repeat: no-repeat, no-repeat;*/
-  /*background-position: calc(100% - 200px) center, left 150px center;*/
   /*background-position: calc(100% - 200px) center;*/
 }
-
-.banner h1 {
+.banner-title h1 {
+  font-family: Copernicus, serif;
+  font-size: 72px;
+  font-weight: 300;
+  line-height: 80px;
+  letter-spacing: -2.5px;
+  padding-bottom: 25px;
+  max-width: 750px;
+  font-family: Copernicus, serif;
+}
+.banner-title {
+  max-width: 100%;
+}
+/*.banner h1 {
   margin: 0;
   color: $ourblue;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
@@ -21,15 +31,12 @@
   width: 100%;
   padding-bottom: 25px;
   font-family: Copernicus;
-}
+}*/
 
-.banner p {
+.banner-title p {
   font-size: 26px;
   color: $ourgray;
   opacity: 0.7;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-family: Copernicus;
-}
-.img-banner {
-  justify-content: space-between;
 }

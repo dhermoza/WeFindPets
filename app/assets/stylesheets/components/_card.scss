@@ -11,16 +11,23 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
-  @include media-breakpoint-down(sm) { grid-template-columns: 1fr; }
-@include media-breakpoint-down(md) { grid-template-columns: 1fr; }
-  @include media-breakpoint-up(lg) { grid-template-columns: 1fr 1fr; }
-@include media-breakpoint-up(xl) { grid-template-columns: 1fr 1fr 1fr; }
+  @include media-breakpoint-down(sm) {
+    grid-template-columns: 1fr;
+  }
+  @include media-breakpoint-down(md) {
+    grid-template-columns: 1fr;
+  }
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include media-breakpoint-up(xl) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 .col-pets {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
-
 }
 
 .card-category {
@@ -33,30 +40,29 @@
   color: white;
   font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.t-overflow{
+.t-overflow {
   width: 200px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.card-trip-wrapper{
-  text-decoration: none!important;
-
+.card-trip-wrapper {
+  text-decoration: none !important;
 }
 
-.card-trip{
+.card-trip {
   color: #000000;
 }
 .card-trip {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
 
@@ -74,10 +80,9 @@
 
 .card-trip p {
   font-size: 12px;
-  opacity: .7;
+  opacity: 0.7;
   margin: 0;
 }
-
 
 .card-trip .card-trip-infos {
   padding: 16px;
@@ -97,7 +102,7 @@
 .card-trip-infos .notification-actions {
   opacity: 0;
   display: flex;
-  transition: ease .3s;
+  transition: ease 0.3s;
 }
 
 .card-trip-infos:hover .notification-actions {
@@ -132,12 +137,19 @@
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
   grid-gap: 16px;
-  @include media-breakpoint-down(sm) { grid-template-columns: 1fr; }
-  @include media-breakpoint-down(md) { grid-template-columns: 1fr; }
-  @include media-breakpoint-up(lg) { grid-template-columns: 1fr 1fr; }
-  @include media-breakpoint-up(xl) { grid-template-columns: 1fr 1fr 1fr; }
+  @include media-breakpoint-down(sm) {
+    grid-template-columns: 1fr;
+  }
+  @include media-breakpoint-down(md) {
+    grid-template-columns: 1fr;
+  }
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @include media-breakpoint-up(xl) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
-
 
 .card-trip-infos a {
   font-size: 1.25rem;
@@ -145,19 +157,18 @@
   color: black;
 }
 
-
 .testimonial-card {
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   background-size: cover;
   background-position: center;
   width: 700px;
-  height: 500px;
+  padding-right: 50px;
 }
 
 .card-description {
   border-radius: 5px;
-  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
   background-color: $pinkforcard;
   padding: 20px;
   h2 {
@@ -168,7 +179,7 @@
 
 .card-caracteristics {
   border-radius: 5px;
-  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
   background-color: $lightblue;
   padding: 20px;
   width: auto;
@@ -180,7 +191,7 @@
 
 .card-caracteristics-left {
   border-radius: 5px;
-  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
   background-color: $ligthyellow;
   padding: 20px;
   width: auto;

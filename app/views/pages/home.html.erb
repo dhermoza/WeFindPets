@@ -53,7 +53,10 @@
   <div class="busqueda">
     <div class="row container m-auto">
       <div class="col">
-        <h2 class="mt-5 mb-5 mr-5">Mascotas Encontradas &gt;</h2>
+        <!--<h2 class="mt-5 mb-5 mr-5">Mascotas Encontradas &gt;</h2>-->
+          <div class="py-3">
+          <%= link_to "Mascotas Encontradas >", found_posts_path, class:"subtitle text-decoration-none"%>
+          </div>
           <div class="cards" data-aos = "flip-left">
             <% @last_founds.each do |pet| %>
               <%= link_to post_path(pet.posts.first), class:"decoration" do  %>
@@ -63,7 +66,10 @@
               <% end %>
             <% end %>
             </div>
-        <h2 class="mt-5 mb-5 mr-5">Mascotas Perdidas &gt;</h2>
+        <!--<h2 class="mt-5 mb-5 mr-5">Mascotas Perdidas &gt;</h2>-->
+          <div class="py-3">
+            <%= link_to "Mascotas Perdidas >", lost_posts_path, class:"subtitle text-decoration-none"%>
+          </div>
           <div class="cards" data-aos = "flip-left">
             <% @last_losts.each do |pet| %>
               <%= link_to post_path(pet.posts.first), class:"decoration" do %>

@@ -1,5 +1,4 @@
 .banner {
-  padding: 100px 0;
   height: auto;
   background-color: $otherpink;
 }
@@ -36,6 +35,9 @@
   .img-banner-1 {
     display: none;
   }
+  .banner {
+    padding-bottom: 35px;
+  }
 }
 @media screen and (max-width: 1000px) and (min-width: 600px) {
   .img-banner-2,
@@ -43,11 +45,24 @@
     width: 20%;
     height: auto;
   }
+  .banner {
+    padding-bottom: 35px;
+  }
 }
-@media screen and (max-width: 1300px) and (min-width: 1000px) {
+@media screen and (max-width: 1400px) and (min-width: 1000px) {
   .img-banner-2,
   .img-banner-1 {
     width: 20%;
     height: auto;
+  }
+  .banner {
+    padding-bottom: 35px;
+  }
+}
+
+@media screen and (min-width: 1400px) and (max-width: 1700px) {
+  .img-banner-2,
+  .img-banner-1 {
+    width: 400px;
   }
 }

@@ -4,27 +4,28 @@
   padding: 0px 50px;
   color: rgba(0, 0, 0, 0.3);
   align-items: center;
-  font-family: Copernicus, serif;
   font-size: 20px;
 }
 .footer-legal {
   margin: auto;
   max-width: 70%;
+  font-family: Copernicus, serif;
 }
 
 .footer-section {
   padding-top: 25px;
+  font-family: Copernicus, serif !important;
 }
 .footer-links {
   display: flex;
   align-items: center;
 }
+
 .footer-links a {
   color: black;
   opacity: 0.15;
   text-decoration: none;
   padding: 0px 10px;
-  font-family: Copernicus, serif;
 }
 .footer-links a:hover {
   opacity: 1;

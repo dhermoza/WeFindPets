@@ -29,10 +29,14 @@
         <%= f.input :color, collection: Pet::COLOR.reject { |s| s[0]== "Todos" }, include_blank: false, :prompt => 'Color',  label: false %>
         <!--<%= f.input :animal, placeholder: "Tipo de Animal", label: false %>-->
     </div>
+    <!--<div class="col">
+        <%= f.input :animal, collection: Pet::ANIMAL.reject { |s| s[0]== "Todos" }, include_blank: false, :prompt => 'animal',  label: false %>
+        <%= f.input :animal, placeholder: "Tipo de Animal", label: false %>
+    </div>-->
   </div>
   <div class="row">
     <div class="col">
-      <%= f.input :photos, as: :file, label: "Suba una foto", label_html: { class: "btn-gradient" }, input_html: { multiple: true, class: "d-none" } %>
+      <%= f.input :photos, as: :file, label: "Suba una foto", label_html: { class: "btn-form" }, input_html: { multiple: true, class: "d-none" } %>
     </div>
   </div>
   <div class="container text-center">

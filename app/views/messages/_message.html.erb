@@ -2,6 +2,7 @@
   <div class="author">
 
     <% if message.user.id == current_user.id %>
+    <%# left %>
       <div class="row">
 
         <div class="col-10">
@@ -20,14 +21,14 @@
               </div>
             <div class="col-10 text-left d-flex justify-content-end">
               <div class="talk-bubble bg-right tri-right right-top">
-  <div class="talktext">
+              <div class="talktext">
                 <p class="">
                   <%= message.description %>
                 </p>
               </div>
   </div>
             </div>
-<div class="col-6 text-right">
+<div class="col-6 text-right t-gray">
                 <small>
                   <%= message.created_at.strftime("Enviado %l:%M%p") %>
                 </small>
@@ -40,6 +41,7 @@
         </div>
       </div>
       <% else %>
+      <%# right %>
         <div class="row">
           <div class="col-1">
             <%= render "shared/avatar" , user: { avatar: message.user.avatar } %>
@@ -58,12 +60,12 @@
               </div>
               <div class="col-8">
                 <div class="talk-bubble bg-left tri-right left-top">
-  <div class="talktext">
-                  <p><%= message.description %></p>
+                  <div class="talktext">
+                    <p><%= message.description %></p>
+                  </div>
                 </div>
-</div>
               </div>
-<div class="col-6 text-left">
+                  <div class="col-6 text-left t-gray">
                     <small>
                       <%= message.created_at.strftime("Enviado %l:%M%p") %>
                     </small>

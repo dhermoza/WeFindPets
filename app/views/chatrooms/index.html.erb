@@ -4,49 +4,51 @@
       <div class="col-4  pl-4 bg-chats border-left">
         <div class="container">
   
-          <h3 class="pt-4">Mis conversaciones</h3>
+          <h3 class="pt-1">Mis conversaciones</h3>
           <% @chatrooms.each do |msn| %>
-          <%= link_to chatroom_path(msn.id), class: "t-link" do %>
-            <div class="row mb-4 mt-4">
-              <div class="col-2">
-                <% if @chatroom.post.user.id==current_user.id %>
-                        <%= render "shared/avatar" , user: { avatar: msn.user.avatar } %>
-                      <% else %>
-                       <%= render "shared/avatar" , user: { avatar: msn.post.user.avatar } %>
-                      <% end %>
+            <%= link_to chatroom_path(msn.id), class: "t-link" do %>
+              <div class="row mb-4 mt-4">
+                <% if @chatroom.post.user.id == current_user.id %>
+                  <div class="col-2">
+                    <%= render "shared/avatar" , user: { avatar: msn.user.avatar } %>
+                  </div>
+                  <div class="col">
+                    <p><%= msn.user.name.capitalize! %></p>        
+                  </div>
+                <% else %>
+                  <div class="col-2">
+                    <%= render "shared/avatar" , user: { avatar: msn.post.user.avatar } %>
+                  </div>
+                  <div class="col">
+                    <p><%= msn.post.user.name.capitalize! %></p>         
+                  </div>
+                <% end %>
               </div>
-              <div class="col">
-              <p><%= msn.name %></p>
-                
-              </div>
-            </div>
             <% end %>
-            <% end %>
+          <% end %>
         </div>
       </div>
   
       <div class="col-8">
-  <nav class="bg-gray" aria-label="breadcrumb">
-    <ol class="breadcrumb mb-0">
-      <li class="breadcrumb-item"> <%= link_to "Ver post", post_path(@chatroom.post.id) %></li>
-      <li class="breadcrumb-item active" aria-current="page">Chat</li>
-  
-    </ol> 
-    <% if @chatroom.user.id==current_user.id %>
+        <nav class="bg-gray" aria-label="breadcrumb">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"> <%= link_to "Ver post", post_path(@chatroom.post.id) %></li>
+            <li class="breadcrumb-item active" aria-current="page">Chat</li>
+        
+          </ol> 
+            
+        </nav>
+       
+        <% if @chatroom.user.id == current_user.id %>
           <h4 class="pt-2 pl-3 pb-4">
             <%= @chatroom.post.user.name.capitalize! %>
           </h4>
-          <% else %>
-            <h4 class="pt-2 pl-3 pb-4">
-              <%= @chatroom.user.name.capitalize! %>
-            </h4>
-            <% end %>
-  </nav>
-       
-             
-                <h1>
-                  <%= @chat %>
-                </h1>
+        <% else %>
+          <h4 class="pt-2 pl-3 pb-4">
+            <%= @chatroom.user.name %>
+          </h4>
+        <% end %>
+                
                 <div id="messages" data-chatroom-id=<%=@chatroom.id %>>
                   <% @chatroom.messages.each do |message| %>
                     <%= render "messages/message" , message: message %>
@@ -64,7 +66,7 @@
                           <%= f.input :description, label: false, placeholder: "Escribe tu mensaje..." %>
                         </div>
                         <div class="col-3">
-                          <%= f.button :submit, value: "Enviar", class: "btn btn-primary" %>
+                          <%= f.button :submit, value: "Enviar", class: "btn btn-gradient" %>
                         </div>
   
                         <% end %>

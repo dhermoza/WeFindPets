@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="container text-left banner-title d-flex justify-content-center align-items-center">
-    <%= image_tag "snap.png", width: 600, class: "img-banner-1",alt: "number"%>
+    <%= image_tag "snap.png", width: 550, class: "img-banner-1",alt: "number"%>
     <div class="banner-title text-center pt-5">
       <h1>We Find Pets</h1>
       <p>¿Perdiste a tu mascota?</p>
@@ -10,7 +10,7 @@
         <%= link_to "Buscar", posts_path, class: "btn btn-gradient-banner " %>
       </div>
     </div>
-    <%= image_tag "walking.png", width: 600, class: "img-banner-2", alt: "number"%>
+    <%= image_tag "walking.png", width: 580, class: "img-banner-2", alt: "number"%>
   </div>
 </div>
 <!--Pasos a seguir-->
@@ -79,15 +79,15 @@
 </section>
 <br>
 <!--testimonios-->
-<section>
+<section class="testimonial-section">
   <h1 class="title-testimonial text-title">Testimonios</h1>
-  <div class="d-flex justify-content-center testimonial-wrapper ">
-    <div class="py-5 mr-5  testimonial-card" data-aos="fade-right">
-      <div class="row align-items-center" style="height : 100%">
+  <div class="d-flex justify-content-center testimonial-wrapper flex-wrap">
+    <div class="py-5  testimonial-card">
+      <div class="row align-items-center testimonial-column" style="height : 100%">
         <div class="col-6 d-flex justify-content-center ">
           <%= image_tag "adam-griffith-sWkkIiTJMYc-unsplash.jpg", height: 200, width: 200,class:"img-testimonial" , alt: "Reunited"%>
         </div>
-        <div class="col-6">
+        <div class="col-6 text-conten">
           <div class="align-self-baseline testimonial">
             <p>"Gracias a WeFindPets pude encontrar rápidamente a mi mascota"</p>
           </div>
@@ -98,12 +98,12 @@
         </div>
       </div>
     </div>
-    <div class="py-5 mr-5 testimonial-card" data-aos="fade-left">
-      <div class="row align-items-center" style="height : 100%">
+    <div class="py-5 testimonial-card">
+      <div class="row align-items-center testimonial-column"  style="height : 100%">
         <div class="col-6 d-flex justify-content-center ">
           <%= image_tag "dog-unsplash.jpg", height: 200, width: 200,class:"img-testimonial",  alt: "Reunited"%>
         </div>
-        <div class="col-6">
+        <div class="col-6 text-conten">
           <div class="align-self-baseline testimonial">
             <p>"Una foto ayudó a Loki a llegar a casa"</p>
           </div>

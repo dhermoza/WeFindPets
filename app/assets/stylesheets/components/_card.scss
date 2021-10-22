@@ -11,6 +11,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+
   @include media-breakpoint-down(sm) {
     grid-template-columns: 1fr;
   }
@@ -23,6 +24,20 @@
   @include media-breakpoint-up(xl) {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+.cards-scroll {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
+  max-height: 850px;
+}
+.cards-scroll::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+.map-container {
+  height: 850px;
+  position: sticky;
+  top: 0;
 }
 .col-pets {
   display: grid;

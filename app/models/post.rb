@@ -5,4 +5,5 @@ class Post < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   has_many :chatrooms
+  validates :description, length: { minimum: 10 }
 end

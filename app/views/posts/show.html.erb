@@ -41,9 +41,8 @@
     </div>
   </div>
   <!-- descripcion -->
-  <div class=" container pt-3 col-8">
+  <div class="container pt-3 col-8">
     <div class="row d-flex justify-content-between">
-      <div class="">
         <div class="card-description">
             <div class="card-post-header">
               <h2 class="post-title"><%= @post.title.capitalize%></h2>
@@ -68,40 +67,41 @@
               <br>
             </div>
           </div>
-          <h3 class="py-3">Identifica a <strong><%= @post.pet.name %></strong> con las siguientes características: </h3>
-          <div class="container d-flex justify-content-center">
-          <div class="post-grid">
-            <div class="detail">
-                <p><strong>Raza:</strong></p>
-                <p><%= @post.pet.breed.capitalize %></p>
-            </div>
-            <div class="detail">
-                <p><strong>Tamaño:</strong></p>
-                <p><%= @post.pet.size.capitalize %></p>
-            </div>
-            <div class="detail">
-                <p><strong>Edad:</strong></p>
-                <p> <%= @post.pet.age %> año</p>
-            </div>
-            <div class="detail">
-                <p><strong>Sexo:</strong></p>
-                <p><%= @post.pet.gender.capitalize %></p>
-            </div>
-            <div class="detail">
-                <p><strong>Color:</strong></p>
-                <p><%= @post.pet.color.capitalize %></p>
-            </div>
-            <div class="detail">
-                <p><strong>Tipo:</strong></p>
-                <p><%= @post.pet.animal.capitalize %></p>
+          <div class="col-8 pl-0">
+            <h3 class="py-3">Identifica a <strong><%= @post.pet.name %></strong> con las siguientes características: </h3>
+          </div>
+          <div class="pl-0 container d-flex justify-content-center">
+            <div class="post-grid">
+              <div class="detail">
+                  <p><strong>Raza:</strong></p>
+                  <p><%= @post.pet.breed.capitalize %></p>
+              </div>
+              <div class="detail">
+                  <p><strong>Tamaño:</strong></p>
+                  <p><%= @post.pet.size.capitalize %></p>
+              </div>
+              <div class="detail">
+                  <p><strong>Edad:</strong></p>
+                  <p> <%= @post.pet.age %> año</p>
+              </div>
+              <div class="detail">
+                  <p><strong>Sexo:</strong></p>
+                  <p><%= @post.pet.gender.capitalize %></p>
+              </div>
+              <div class="detail">
+                  <p><strong>Color:</strong></p>
+                  <p><%= @post.pet.color.capitalize %></p>
+              </div>
+              <div class="detail">
+                  <p><strong>Tipo:</strong></p>
+                  <p><%= @post.pet.animal.capitalize %></p>
+              </div>
             </div>
           </div>
 
-          </div>
-      </div>
       <div class="map-post-container">
         <div data-controller="show-map">
-          <p><i class="fas fa-map-marked-alt"></i> Dirección <%= @post.address%></p>
+          <p class="pt-5"><i class="fas fa-map-marked-alt"></i> Dirección <%= @post.address%></p>
           <div id="map" data-show-map-target="map"
             data-marker="<%= @marker.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -113,13 +113,15 @@
 
     <div class="container d-flex justify-content-center pt-3">
         <div class="row">
-              <% if @post.user.id != current_user.id %>
-                <div class="col-6 align-items-end px-0 d-flex justify-content-between text-center px-2 py-3">
-                  <h5>¿Lo has visto?</h5>
-                </div>
-                <div class="col-6 px-0  d-flex justify-content-between text-center px-2 py-3">
-                  <%= link_to "Contactar", post_chatrooms_path(@post.id), class:"btn btn-light-gradient", method: "post" %>
-                </div>
+              <% if user_signed_in? %>
+                <% if @post.user.id != current_user.id %>
+                  <div class="col-6 align-items-end px-0 d-flex justify-content-between text-center px-2 py-3">
+                    <h5>¿Lo has visto?</h5>
+                  </div>
+                  <div class="col-6 px-0  d-flex justify-content-between text-center px-2 py-3">
+                    <%= link_to "Contactar", post_chatrooms_path(@post.id), class:"btn btn-light-gradient", method: "post" %>
+                  </div>
+                <% end %>
               <% end %>
         </div>
     </div>

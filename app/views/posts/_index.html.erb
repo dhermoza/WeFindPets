@@ -31,25 +31,25 @@
    </div>
   </div>
   </div>
-  <h2 class="pb-3">Resultados de la búsqueda:
+  <p class="pb-3">Resultados de la búsqueda:
     <% if @posts.size > 1  || @posts.size == 0%>
       <%= pluralize @posts.size, "publicaciones" %>
     <% else %>
       <%=  pluralize @posts.size, "publicación" %>
     <% end %>
-  </h2>
+  </p>
 
   <div class="row">
     <div class="col-4">
       <div data-controller="map-index">
-        <div class="map-container" id="map" data-map-index-target="map"
-          style="width: 100%; height: 1000px; position: sticky;"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
+          <div class="map-container" id="map" data-map-index-target="map"
+            style="width: 100%; height: 850px; position: sticky;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
       </div>
     </div>
-    <div class="col-8">
+    <div class="col-8 cards-scroll">
         <div class="cards" data-search-posts-target="posts">
           <% @posts.each do |post| %>
             <%= link_to  post_path(post), class: "card-trip-wrapper" do %>
